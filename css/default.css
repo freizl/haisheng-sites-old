@@ -1,0 +1,38 @@
+body { 
+margin:0;padding:0;color:#555;/*background:#B8C5B3 Url(../images/kinetic.jpg); */
+}
+div#main {
+  width:35em;margin:1em auto;padding:5px 25px 30px 25px;background:white;
+  border-radius:5px;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+ }
+h1,h2 { font-family:"dejavu sans",sans-serif }
+p,ul { font-family:georgia,serif;font-size:18px }
+a { color:#386794;text-decoration:none;font-family: "apolline-1","apolline-2",serif; }
+a:hover { color:#1d4c77;text-decoration:underline }
+a:visited,a:active { color:#6c88a2 }
+li + li { margin-top:0.5em }
+p.caption { margin:0;padding:0;font-style:italic;color:#777;font-size:0.9em }
+div.figure { float:right;margin-top:20px }
+hr { color:#eee;border:1px solid #eee;background:#eee }
+blockquote { margin:0em 1em; padding:0.1em 1em; background:#eee }
+pre { margin:0em 1em; padding:1em 1em; background:#eee;overflow:auto; }
+.body { clear:both; padding-top:5px}
+.clear { clear:both}
+code{color:#797F77}
+blockquote + center { margin-top: 1em }
+
+div#footer, div#footer p {
+    padding-top: 30px;
+    clear: both;
+    font-size: 90%;
+    text-align: center;
+}
+
+/* ****************************** google search */
+div#googlesearch {
+    text-align: right;
+    margin-top: 10px;
+}
+

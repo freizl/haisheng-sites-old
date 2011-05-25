@@ -1,0 +1,11 @@
+This is the source code to my home page. It is built with hakyll.
+
+    $ ghc --make hakyll
+
+then to build:
+
+    $ ./hakyll build
+
+or to preview:
+
+    $ ./hakyll preview

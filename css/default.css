@@ -8,7 +8,8 @@ div#main {
   -webkit-border-radius:5px;
  }
 h1,h2 { font-family:"dejavu sans",sans-serif }
-p,ul { font-family:georgia,serif;font-size:18px }
+p,ul { font-family:georgia,serif;font-size:16px }
+ul li em {font-size:12px;}
 a { color:#386794;text-decoration:none;font-family: "apolline-1","apolline-2",serif; }
 a:hover { color:#1d4c77;text-decoration:underline }
 a:visited,a:active { color:#6c88a2 }

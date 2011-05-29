@@ -28,7 +28,7 @@ In order to be a monad, it has to be a instance of `Monad` and the implementatio
 >               in Sint (b, c1+c2)
 ~~~~~
 
-It means keep the result of the second computation and combinate the count together. Find full code [here](code/SideEffectInc.lhs)
+It means keep the result of the second computation and combinate the count together. Find full code [`here`](/codes/SideEffectInc.lhs)
 
 Now, I realiaze that to implement a Monadic Type, two key points we need to do, which also turn to be simple.
 

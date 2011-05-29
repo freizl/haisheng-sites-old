@@ -9,3 +9,6 @@ then to build:
 or to preview:
 
     $ ./hakyll preview
+
+TODO:
+  1. Generate sitemaps

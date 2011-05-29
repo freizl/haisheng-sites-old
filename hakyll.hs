@@ -17,7 +17,7 @@ main = hakyll $ do
         compile compressCssCompiler
 
     -- Static directories
-    forM_ ["images/*", "sitemaps/*"] $ \f -> match f $ do
+    forM_ ["images/*", "sitemaps/*", "codes/*"] $ \f -> match f $ do
         route   idRoute
         compile copyFileCompiler
 

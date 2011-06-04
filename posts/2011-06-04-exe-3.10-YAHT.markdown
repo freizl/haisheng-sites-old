@@ -1,12 +1,14 @@
-module Main where
+---
+title: Exercise 3.10 of Yet another Haskell tutorial
+author: Haisheng, Wu
+tags: haskell, tutorial
+---
 
+The exercise asks writing a program that will repeatedly ask the user for numbers until she types in zero, at which point it will tell her the sum of all the numbers, the product of all the numbers, and, for each number, its factorial.
 
-> ----- Yet another Haskell toturial
-> -- Exercise 3.10 Write a program that will repeatedly ask the user for numbers until she
-> -- types in zero, at which point it will tell her the sum of all the numbers, the product of
-> -- all the numbers, and, for each number, its factorial.
+In the solution, I practice a idea that Monad is lazy as well. In other words, here, could generate a list of Monads then print out to console.
 
-> main :: IO ()  
+~~~~~
 > main = do  
 >     xs <- sgetline  
 >     mapM_ (\s -> putStrLn s) (showSum xs : showProduct xs : (map showFactorial xs))
@@ -26,3 +28,6 @@ module Main where
 >          return ((read x):xs)  
 >   
 > factorial n = product [1..n]
+~~~~~
+
+Full code [`here`](/codes/yaht-3.10.lhs).

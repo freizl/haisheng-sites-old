@@ -11,12 +11,12 @@ module Main where
 >     xs <- sgetline  
 >     mapM_ (\s -> putStrLn s) (showSum xs : showProduct xs : (map showFactorial xs))
 >   where   
->     showSum x = "The sum is: " ++ (show . sum) x  
->     showProduct x = "The product is: " ++ (show . product) x  
->     showFactorial x = (show x) ++ " factorial is: " ++ (show . factorial) x  
+>     showSum xs = "The sum is: " ++ (show . sum) xs
+>     showProduct xs = "The product is: " ++ (show . product) xs
+>     showFactorial xs = (show x) ++ " factorial is: " ++ (show . factorial) xs
 >       
 > sgetline :: IO [Int]  
-> sgetline = do  
+> sgetline = do
 >     putStrLn "Give me a number (or 0 to stop) :"    
 >     x <- getLine  
 >     if x `elem` ["", "0"] then -- isStringEmpty??  

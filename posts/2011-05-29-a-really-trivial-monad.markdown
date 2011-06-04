@@ -12,7 +12,7 @@ It probably is at most of time but not have to be. For instance the `Maybe` type
 
 Actually I would to play with such idea:
     
-:    **To add a count of operations performed to it**
+> To add a count of operations performed to it
 
 Therefore the type is actually any value plus a count
 

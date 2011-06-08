@@ -5,6 +5,9 @@ tags: haskell, fold
 ---
 
 I can not quite remember the usage of foldr until I finish the video by Erik Meijer on <Programming in Haskell> Chapter 7[^meijer-pih].
+
+# Descrption by Erik
+
 Erik describe `foldr` in a very comprehensive way. 
 
 Take refining the `length` function in terms of `foldr` as a example.
@@ -31,6 +34,8 @@ By replace each (:) by `\ _ n -> 1 + n` and [] by 0, we have:
 > length = foldr (\ _ n -> 1 + n) 0
 ~~~~~
 
+# Definition by Graham
+
 Having such knowledge inside, I find Graham's tutorial paper[^ghutton] about fold again.
 There is a concise decription of what fold is:
 
@@ -45,6 +50,22 @@ fold  :: (a -> b -> b) -> b -> [a] -> b
 fold f v [] = v
 fold f v (x:xs) = f x (fold f v xs)
 ~~~~~
+
+# In one sentence
+
+Thought it might not be that precisely.
+
+~~~~~
+foldr :: (a -> b -> b) -> b -> [a] -> b
+~~~~~
+
+> Pull element one by one from right side of the list and apply the callback
+
+~~~~~
+foldl :: (a -> b -> a) -> a -> [b] -> a 
+~~~~~
+
+> Basically, pull element one by one from left side of the list and apply the callback
 
 [^meijer-pih]: [Programming in Haskell](http://www.cs.nott.ac.uk/~gmh/book.html)
 [^ghutton]: [Tutorial on the universality and expressions of fold](www.cs.nott.ac.uk/~gmh/fold.pdf)

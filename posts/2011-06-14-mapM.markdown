@@ -4,13 +4,13 @@ author: Haisheng, Wu
 tags: haskell, monad
 ---
 
-## How to understand the following computation result?
+### How to understand the following computation result?
 ~~~~~
 Prelude> mapM id [Just 1, Nothing, Just 3]
 Nothing
 ~~~~~
 
-## 'Reason about'
+### 'Reason about'
 
 ~~~~~
 mapM     :: (a -> m b) -> [a] -> m [b]

@@ -2,7 +2,7 @@ body {
 margin:0;padding:0;color:#555;/*background:#B8C5B3 Url(../images/kinetic.jpg); */
 }
 div#main {
-  width:35em;margin:1em auto;padding:5px 25px 30px 25px;background:white;
+  width:40em;margin:1em auto;padding:5px 25px 30px 25px;background:white;
   border-radius:5px;
   -moz-border-radius:5px;
   -webkit-border-radius:5px;

@@ -52,5 +52,7 @@ We could easy guess the result of `succ Tuesday` will be Wednesday.
 # Further study
 - How does the Deriving being implemented in Haskell?
 
+Thanks a guy point me I could go further by study [Data.derive](http://hackage.haskell.org/package/derive) at the beginner mailing session.
+
 # Reference
 - [Learn Your Haskell, Chapter 8](http://learnyouahaskell.com/making-our-own-types-and-typeclasses)

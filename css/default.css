@@ -1,18 +1,33 @@
-body { 
-margin:0;padding:0;color:#555;/*background:#B8C5B3 Url(../images/kinetic.jpg); */
+html {color: black; 
+      font-family: 
+      font-family:georgia, 'Lucida Sans','Helvetica','Arial',sans-serif;
+      font-size: 14px;
+      line-height: 22px;
+      text-align: left;
 }
-div#main {
-  width:40em;margin:1em auto;padding:5px 25px 30px 25px;background:white;
-  border-radius:5px;
-  -moz-border-radius:5px;
-  -webkit-border-radius:5px;
+
+body { margin:0;padding:0;color:#555;/*background:#B8C5B3 Url(../images/kinetic.jpg); */}
+div#header {background: url("../images/header-background.png") repeat-x scroll center top white; height: 40px;padding-top: 30px; }
+div#header a {
+    color: white;
+    display: block;
+    font-size: 30px;
+    margin: 0 auto;
+    text-decoration: none;
+    width: 700px;
+    font-family: 'WhiteboardRegular',sans-serif;
+}
+
+div#main { background-color: white; padding-bottom: 20px; }
+div#content {
+  width:700px;margin:1em auto;
  }
-h1,h2 { font-family:"dejavu sans",sans-serif }
-p,ul { font-family:georgia,serif;font-size:16px }
+h1,h2 { font-family: 'WhiteboardRegular',sans-serif; }
+/* div#tags a, p,ul { font-size:14px } */
 ul li em {font-size:12px;}
-a { color:#386794;text-decoration:none;font-family: "apolline-1","apolline-2",serif; }
+a { color:#000000;text-decoration:none;}
 a:hover { color:#1d4c77;text-decoration:underline }
-a:visited,a:active { color:#6c88a2 }
+a:visited,a:active { color:#000000; }
 li + li { margin-top:0.5em }
 p.caption { margin:0;padding:0;font-style:italic;color:#777;font-size:0.9em }
 div.figure { float:right;margin-top:20px }
@@ -38,11 +53,17 @@ pre code {
     margin-bottom: 2em;
 }
 
-div#footer, div#footer p {
-    padding-top: 30px;
+div#footer {
+    background: url("../images/footer-background.png") repeat-x scroll center top #666666;
     clear: both;
-    font-size: 90%;
+    color: white;
+    font-size: 12px;
+    height: 100px;
+    padding-top: 20px;
     text-align: center;
+}
+div#footer a {
+    color: white;
 }
 
 /* ****************************** google search */

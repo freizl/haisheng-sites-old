@@ -23,7 +23,4 @@ build: $(PROG)
 rebuild: $(PROG)
 	./$(PROG) rebuild
 
-deploy: rebuild
-	cp -R $(SITE) $(GAE)
-
 HC=ghc

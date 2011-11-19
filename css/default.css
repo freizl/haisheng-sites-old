@@ -1,13 +1,15 @@
 html {
-    font-family: 'Lucida Sans','Helvetica',verdana,sans-serif;
-    font-size: 14px;
-    line-height: 22px;
-    text-align: left;
+    font-family : 'Lucida Sans','Helvetica',verdana,sans-serif;
+    font-size   : 14px;
+    line-height : 22px;
+    text-align  : left;
 }
 
-body { 
-    margin:0;
-    padding:0;
+div#main {
+    width   : 700px;
+    margin  : 0 auto;
+    padding : 0;
+    padding-bottom: 20px; 
 }
 
 div#header {
@@ -18,15 +20,6 @@ div#header {
 div#header a {
     display: block;
     font-size: 30px;
-    margin: 0 auto;
-    text-decoration: none;
-    width: 700px;
-    font-family: 'WhiteboardRegular',sans-serif;
-}
-
-div#main { 
-    background-color: white;
-    padding-bottom: 20px; 
 }
 
 div#content {
@@ -34,18 +27,71 @@ div#content {
     margin:1em auto;
 }
 
-h1,h2 { font-family: 'WhiteboardRegular',sans-serif; }
-ul li em {font-size:12px;}
-a { color:#000000;text-decoration:none;}
-a:hover { color:#1d4c77;text-decoration:underline }
-a:visited,a:active { color:#000000; }
-li + li { margin-top:0.5em }
-p.caption { margin:0;padding:0;font-style:italic;color:#777;font-size:0.9em }
-div.figure { float:right;margin-top:20px }
-hr { color:#eee;border:1px solid #eee;background:#eee }
-blockquote { margin:0em 1em; padding:0.1em 1em; background:#eee }
+div#footer {
+    clear       : both;
+    font-size   : 12px;
+    padding-top : 0px;
+    text-align  : center;
+}
+
+div#footer a {
+    text-decoration:underline;
+}
+
+h1,h2 { 
+    text-transform : uppercase;
+}
+
+ul li em {
+    font-size:12px;
+}
+
+a { 
+    color:#000000;
+    text-decoration:none;
+}
+
+a:hover { 
+    color:#1d4c77;
+    text-decoration:underline;
+}
+a:visited,a:active { 
+    color:#000000; 
+}
+
+li + li { 
+    margin-top:0.5em 
+}
+
+p.caption { 
+    margin:0;
+    padding:0;
+    font-style:italic;
+    color:#777;
+    font-size:0.9em 
+}
+
+div.figure { 
+    float:right;
+    margin-top:20px 
+}
+
+hr { 
+    color:#eee;
+    border:1px solid #eee;
+    background:#eee 
+}
+
+blockquote { 
+    margin:0em 1em; 
+    padding:0.1em 1em; 
+    background:#eee 
+}
+
 .body { clear:both; padding-top:5px}
+
 .clear { clear:both}
+
 blockquote + center { margin-top: 1em }
 
 pre2 { 
@@ -55,7 +101,9 @@ pre2 {
     overflow:auto; 
 }
 
-code2 {color:#797F77}
+code2 {
+    color:#797F77
+}
 
 code {
     background-color: rgb(250, 250, 250);
@@ -69,22 +117,10 @@ pre code {
     font-family: "Courier New";
 }
 
-div#footer {
-    /* background: url("../images/footer-background.png") repeat-x scroll center top #666666; */
-    clear: both;
-    color: white;
-    font-size: 12px;
-    height: 100px;
-    padding-top: 20px;
-    text-align: center;
-}
-div#footer a {
-    color: white;
-}
 
 /* ****************************** google search */
 div#googlesearch {
     text-align: right;
-    margin-top: 10px;
+    margin: 10px auto;
+    width : 700px
 }
-

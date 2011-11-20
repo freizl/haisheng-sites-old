@@ -13,8 +13,6 @@ I wonder it would take minutes or even hours.
 
 So, problem solving failed.
 
-compile as otherwise Stack space overflow : `ghc --make p14-1.hs -O2 -fforce-recomp -rtsopts`
-
 ~~~~~
 module Main where
 import Data.Word
@@ -35,24 +33,19 @@ intTransform n
 
 ~~~~~
 
+Compile as otherwise Stack space overflow : `ghc --make p14-1.hs -O2 -fforce-recomp -rtsopts`
+
 ## Solution Two
 
 I went for Haskell Wiki[^HaskellWiki] for help by finding solution one there is similar to one of its solutions.
 The significate difference is it uses type `Word32` for `n` rather than `Int`.
-I picked this difference and updated solution one into follow and it worked out really cool.
+I picked this difference and make the following change and it worked out really cool.
 
 The result came under 1.5s at my local!
 
-compile as otherwise Stack space overflow : `ghc --make p14-1.hs -O2 -fforce-recomp -rtsopts`
+**Why such differences?**
 
 ~~~~~
-module Main where
-import Data.Word
-    
-main :: IO ()
-main = print $ p14
-
-p14 = maximum [ (startChain n 0, n) | n <- [2..1000000] ]
 
 startChain :: Word32 -> Int -> Int
 startChain 1 count    = count + 1
@@ -65,7 +58,9 @@ intTransform n
 
 ~~~~~
 
-## Other solution
+Compile as otherwise Stack space overflow : `ghc --make p14-1.hs -O2 -fforce-recomp -rtsopts`
+
+## Other solutions
 
 Haskell Wiki[^HaskellWiki] presents several solutions. 
 One interested me is that levearages parallel programming `Control.Parallel`.

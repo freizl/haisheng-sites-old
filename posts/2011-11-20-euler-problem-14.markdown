@@ -8,10 +8,12 @@ tags: haskell, euler
 ## Solution One
 
 I should say this solution only work while upper limit is under 100000.
-Otherwise it is really slow and I have no pasient for the result.
+Otherwise it is really slow and I have no patient for the result.
 I wonder it would take minutes or even hours.
 
 So, problem solving failed.
+
+compile as otherwise Stack space overflow : `ghc --make p14-1.hs -O2 -fforce-recomp -rtsopts`
 
 ~~~~~
 module Main where
@@ -35,13 +37,13 @@ intTransform n
 
 ## Solution Two
 
-I went for Haskell Wiki[^HaskellWiki] for help by finding solution one here is similar to one of its solutions.
+I went for Haskell Wiki[^HaskellWiki] for help by finding solution one there is similar to one of its solutions.
 The significate difference is it uses type `Word32` for `n` rather than `Int`.
 I picked this difference and updated solution one into follow and it worked out really cool.
 
 The result came under 1.5s at my local!
 
-?? what is the link opts..seems due to how to link (compile) it.
+compile as otherwise Stack space overflow : `ghc --make p14-1.hs -O2 -fforce-recomp -rtsopts`
 
 ~~~~~
 module Main where
@@ -68,4 +70,6 @@ intTransform n
 Haskell Wiki[^HaskellWiki] presents several solutions. 
 One interested me is that levearages parallel programming `Control.Parallel`.
 
-[^HaskellWiki]: [Haskell Wiki Euler Problem](https://github.com/freizl/dive-into-haskell/tree/master/prime)
+(FIXME: will contiuse a little bit about parallel)
+
+[^HaskellWiki]: [Haskell Wiki Euler Problem](http://www.haskell.org/haskellwiki/Euler_problems/11_to_20)

@@ -10,8 +10,8 @@
 I am a technical stuff at [[http://www.c3-e.com/][C3]] China located at Shanghai.
 
 * Sites
-  + [[http://haisgwu.info/][All about Haskell]]
-  + [[http://docs.nfshost.com/][Tech Notes]]
+  + [[http://haisgwu.info/][All about haskell]]
+  + [[http://docs.nfshost.com/][Tech notes]]
   + [[http://docs.nfshost.com/][Daily]]
   + [[http://code.google.com/p/person-study/][iGoogle code]]
   + [[http://code.google.com/p/ipaper/][iPaper]]

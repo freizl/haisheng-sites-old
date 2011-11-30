@@ -2,4 +2,4 @@ _*
 *.hi
 *.o
 hakyll
-home/index.html
+*.html

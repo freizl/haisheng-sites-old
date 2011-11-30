@@ -3,9 +3,16 @@
 #+AUTHOR: Haisheng Wu
 #+EMAIL: freizl@gmail.com
 #+DESCRIPTION: todo list
-#+OPTIONS: toc:t
+#+OPTIONS: toc:1
 
-* TODO minify css files
+* Tech
+** TODO minify css files
+** TODO relative css link
+
+* Miscs
+** TODO move notes from evernotes to here
+** TODO move google wiki to here
+
 * Org-mode references
   - [[http://orgmode.org/worg/index.html][Org-mode Community]]
   - [[http://doc.norang.ca/org-mode.html][Organize Your Life In Plain Text]]

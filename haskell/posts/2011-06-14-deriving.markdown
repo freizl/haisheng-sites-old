@@ -1,7 +1,7 @@
 ---
 title: Deriving in Haskell
 author: Haisheng, Wu
-tags: haskell, typeclass, deriving
+tags: typeclass, deriving
 ---
 
 # Deriving

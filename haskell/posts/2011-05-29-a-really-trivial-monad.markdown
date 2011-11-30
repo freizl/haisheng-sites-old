@@ -1,7 +1,7 @@
 ---
 title: A really trivial monad
 author: Haisheng, Wu
-tags: haskell, monad
+tags: monad
 ---
 
 Generally some people saying that Monad is a computation that take a 'world' as parameter and produce a result along with modified 'world'. And this a manner that doing inpure in a pure language.

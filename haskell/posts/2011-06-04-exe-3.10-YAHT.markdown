@@ -1,7 +1,7 @@
 ---
 title: Exercise 3.10 of Yet another Haskell tutorial
 author: Haisheng, Wu
-tags: haskell, tutorial
+tags: tutorial
 ---
 
 The exercise asks writing a program that will repeatedly ask the user for numbers until she types in zero, at which point it will tell her the sum of all the numbers, the product of all the numbers, and, for each number, its factorial.

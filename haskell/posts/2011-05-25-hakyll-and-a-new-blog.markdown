@@ -1,7 +1,7 @@
 ---
 title: A new blog and Hakyll
 author: Haisheng, Wu
-tags: haskell, hakyll
+tags: hakyll
 ---
 
 This is my first post on my new blog which is generated using Hakyll package[^hakyll] and stolen ideas from its samples and this guy[^chrisdone] and this guy[^jaspervd]

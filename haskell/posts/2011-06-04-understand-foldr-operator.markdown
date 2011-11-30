@@ -1,7 +1,7 @@
 ---
 title: Understand foldr operator
 author: Haisheng, Wu
-tags: haskell, fold
+tags: fold
 ---
 
 I can not quite remember the usage of foldr until I finish the video by Erik Meijer on <Programming in Haskell> Chapter 7[^meijer-pih].

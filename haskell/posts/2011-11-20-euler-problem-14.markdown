@@ -1,7 +1,7 @@
 ---
 title: Solving Euler Problem 14
 author: Haisheng, Wu
-tags: haskell, euler
+tags: euler
 ---
 
 

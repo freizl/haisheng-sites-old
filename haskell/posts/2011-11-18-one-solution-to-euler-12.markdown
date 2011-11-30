@@ -1,7 +1,7 @@
 ---
 title: One solution to euler problem 12
 author: Haisheng, Wu
-tags: haskell, euler
+tags: euler
 ---
 
 Nothing special but play haskell for fun.

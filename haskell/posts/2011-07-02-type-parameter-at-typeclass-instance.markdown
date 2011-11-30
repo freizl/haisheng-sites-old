@@ -1,7 +1,7 @@
 ---
 title: Type parameter at type class instance
 author: Haisheng, Wu
-tags: haskell, typeclass
+tags: typeclass
 ---
 
 # A newbie concern

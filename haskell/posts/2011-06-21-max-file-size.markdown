@@ -1,7 +1,7 @@
 ---
 title: Max size file in desired directory
 author: Haisheng, Wu
-tags: haskell, monad
+tags: monad
 ---
 
 While doing some refactoring work on solution from this guy[^garriot], I realized a pretty trivial thing about Manod method `>>=`.

@@ -3,7 +3,7 @@
 #+AUTHOR: Haisheng Wu
 #+EMAIL: freizl@gmail.com
 #+OPTIONS: author:nil creator:nil timestamp:t email:t
-#+OPTIONS: num:nil toc:nil infojs-opt:nil
+#+OPTIONS: num:nil toc:nil
 #+DESCRIPTION: My home page
 #+STYLE: <link rel="stylesheet" href="default.css" type="text/css"/>
 

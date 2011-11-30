@@ -1,7 +1,0 @@
-#+TITLE: Intertesting Org-mode links
-#+LANGUAGE: en
-#+AUTHOR: Haisheng Wu
-#+EMAIL: freizl@gmail.com
-#+DESCRIPTION: Intertesting Org-Mode links
-#+KEYWORDS:  org-mode Emacs
-

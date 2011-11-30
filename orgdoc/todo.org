@@ -3,6 +3,7 @@
 #+AUTHOR: Haisheng Wu
 #+EMAIL: freizl@gmail.com
 #+DESCRIPTION: todo list
+#+OPTIONS: toc:t
 
 * TODO minify css files
 * Org-mode references

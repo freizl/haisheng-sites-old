@@ -1,0 +1,22 @@
+#+TITLE: Haisheng λome
+#+LANGUAGE: en
+#+AUTHOR: Haisheng Wu
+#+EMAIL: freizl@gmail.com
+#+OPTIONS: author:nil creator:nil timestamp:t email:t
+#+OPTIONS: num:nil toc:nil infojs-opt:nil
+#+DESCRIPTION: My home page
+#+INFOJS_OPT: nil
+#+STYLE: <link rel="stylesheet" href="default.css" type="text/css"/>
+
+I am a technical stuff at [[http://www.c3-e.com/][C3]] China located at Shanghai.
+
+* Sites
+  + [[http://haisgwu.info/][All about Haskell]]
+  + [[http://docs.nfshost.com/][Some Docs]]
+  + [[http://code.google.com/p/person-study/][iGoogle code]]
+  + [[http://code.google.com/p/ipaper/][iPaper]]
+    
+* SNS
+  + [[http://www.douban.com/people/freizl/][Douban]]
+  + [[http://twitter.com/freizl][Twitter]]
+    

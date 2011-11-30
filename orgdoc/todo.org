@@ -1,0 +1,10 @@
+#+TITLE: TODOs
+#+LANGUAGE: en
+#+AUTHOR: Haisheng Wu
+#+EMAIL: freizl@gmail.com
+#+DESCRIPTION: todo list
+
+* TODO minify css files
+* Org-mode references
+  - [[http://orgmode.org/worg/index.html][Org-mode Community]]
+  - [[http://doc.norang.ca/org-mode.html][Organize Your Life In Plain Text]]

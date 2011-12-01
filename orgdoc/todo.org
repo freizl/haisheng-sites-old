@@ -6,11 +6,15 @@
 #+OPTIONS: toc:1
 
 * Tech
-** TODO minify css files
+** DONE minify css files
+   CLOSED: [2011-12-01 Thu 12:34]
+   leverage hakyll
 ** TODO relative css link
 
 * Miscs
-** TODO move notes from evernotes to here
+** DONE move notes from evernotes to here
+   CLOSED: [2011-12-01 Thu 12:34]
+   -evernotes looks good so far for notes
 ** TODO move google wiki to here
 
 * Org-mode references

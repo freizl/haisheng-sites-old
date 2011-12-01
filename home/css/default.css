@@ -1,6 +1,7 @@
+
 body {
     margin: 1em;
-    background: repeat scroll 0 0 url('small-grid.gif');
+    background: repeat scroll 0 0 url('../images/small-grid.gif');
     margin: 0;
     padding: 2em;
     color: #000;

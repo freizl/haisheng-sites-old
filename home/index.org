@@ -5,7 +5,6 @@
 #+OPTIONS: author:nil creator:nil timestamp:t email:t
 #+OPTIONS: num:nil toc:nil
 #+DESCRIPTION: My home page
-#+STYLE: <link rel="stylesheet" href="default.css" type="text/css"/>
 
 I am a technical stuff at [[http://www.c3-e.com/][C3]] China located at Shanghai.
 

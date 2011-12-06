@@ -6,7 +6,7 @@
 #+OPTIONS: toc:1
 
 * TODO move google wiki to here and evernotes
-  - google notes
+  - [X] google notes
   - notes on notebook
 
 * FINISHED
@@ -35,12 +35,9 @@ main = hakyll $ do
 ** DONE move notes from evernotes to here
    CLOSED: [2011-12-01 Thu 12:34]
    - NOTE: evernotes looks good so far for notes
-   
 
 * QUICKLINKS
   - [[http://37signals.com/svn][37signals Blog]]
-  - [[http://cufp.org/][CUFP]]
-  - [[http://en.wikibooks.org/wiki/Haskell][Wikibooks/Haskell]]
   - [[http://doc.norang.ca/org-mode.html][Organize Your Life In Plain Text]]
   - [[http://orgmode.org/worg/index.html][Org-mode Community]]
   - [[https://www.evernote.com/][Evernote]]

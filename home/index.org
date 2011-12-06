@@ -13,15 +13,17 @@ I am a technical stuff at [[http://www.c3-e.com/][C3]] China located at Shanghai
   + [[http://docs.nfshost.com/][Tech notes]]
   + [[http://daily.nfshost.com/][Daily]]
 
+* SNS
+  + [[https://kindle.amazon.com/profile/simon/1387293][Kindle share]]
+  + [[http://twitter.com/freizl][Twitter]]
+  + [[http://www.douban.com/people/freizl/][Douban]]
+
 * Github
+  + [[https://github.com/freizl/haisheng-homepage][This site]]
+  + [[https://github.com/freizl/myDotEmacs][dotemacs]]
   
 * Google codes
   + [[http://code.google.com/p/ipaper/][iPaper of Haskell]]
   + [[http://code.google.com/p/euler-in-lisp/][Euler in LISP]]
   + [[http://code.google.com/p/stockwatcher-in-mvp/][Stockwatcher in MVP]]
   + [[HTTP://code.google.com/p/personal-study/][Misc share]]
-
-* SNS
-  + [[https://kindle.amazon.com/profile/simon/1387293][Kindle share]]
-  + [[http://twitter.com/freizl][Twitter]]
-  + [[http://www.douban.com/people/freizl/][Douban]]

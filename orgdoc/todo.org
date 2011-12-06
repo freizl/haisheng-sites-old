@@ -8,21 +8,40 @@
 * TODO move google wiki to here and evernotes
   - google notes
   - notes on notebook
-* TODO relative css link
-
 
 * FINISHED
 ** DONE minify css files
    CLOSED: [2011-12-01 Thu 12:34]
-   leverage hakyll
+   - NOET: leverage hakyll
+#+begin_src haskell
+{-# LANGUAGE OverloadedStrings #-}
+module Main where
+
+import Control.Monad(forM_)
+import Hakyll
+
+main :: IO ()
+main = hakyll $ do
+    -- Compress CSS
+    match "css/*" $ do
+      route   idRoute
+      compile compressCssCompiler
+    -- Static directories
+    forM_ ["*.html", "images/*", "*/*.html"] $ \f -> match f $ do
+      route   idRoute
+      compile copyFileCompiler
+#+end_src
+
 ** DONE move notes from evernotes to here
    CLOSED: [2011-12-01 Thu 12:34]
-   -evernotes looks good so far for notes
+   - NOTE: evernotes looks good so far for notes
+   
 
-
-* Quicklinks
+* QUICKLINKS
   - [[http://37signals.com/svn][37signals Blog]]
   - [[http://cufp.org/][CUFP]]
   - [[http://en.wikibooks.org/wiki/Haskell][Wikibooks/Haskell]]
   - [[http://doc.norang.ca/org-mode.html][Organize Your Life In Plain Text]]
   - [[http://orgmode.org/worg/index.html][Org-mode Community]]
+  - [[https://www.evernote.com/][Evernote]]
+  - [[https://www.amazon.com/clouddrive][Amazon cloud driver]]

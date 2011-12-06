@@ -10,15 +10,18 @@ I am a technical stuff at [[http://www.c3-e.com/][C3]] China located at Shanghai
 
 * Sites
   + [[http://haisgwu.info/][All about haskell]]
-  + [[http://code.google.com/p/ipaper/][iPaper]]
   + [[http://docs.nfshost.com/][Tech notes]]
-  + [[http://docs.nfshost.com/][Daily]]
-    
+  + [[http://daily.nfshost.com/][Daily]]
+
+* Github
+  
+* Google codes
+  + [[http://code.google.com/p/ipaper/][iPaper of Haskell]]
+  + [[http://code.google.com/p/euler-in-lisp/][Euler in LISP]]
+  + [[http://code.google.com/p/stockwatcher-in-mvp/][Stockwatcher in MVP]]
+  + [[HTTP://code.google.com/p/personal-study/][Misc share]]
+
 * SNS
-  + [[http://www.douban.com/people/freizl/][Douban]]
-  + [[http://twitter.com/freizl][Twitter]]
-  + [[https://www.amazon.com/clouddrive][Amazon cloud driver]]
   + [[https://kindle.amazon.com/profile/simon/1387293][Kindle share]]
-  + [[https://www.evernote.com/][Evernote]]
-  + [[http://code.google.com/p/person-study/][iGoogle code]]
-    
+  + [[http://twitter.com/freizl][Twitter]]
+  + [[http://www.douban.com/people/freizl/][Douban]]

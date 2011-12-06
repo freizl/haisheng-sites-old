@@ -8,6 +8,8 @@
 * TODO move google wiki to here and evernotes
   - [X] google notes
   - notes on notebook
+* TODO gitnotes in github
+  - move to here??
 
 * FINISHED
 ** DONE minify css files

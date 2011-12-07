@@ -5,7 +5,6 @@
 #+OPTIONS: num:nil
 #+DESCRIPTION: A description of how I currently use org-mode
 #+KEYWORDS:  org-mode Emacs
-#+STYLE: <link rel="stylesheet" href="../css/default.css" type="text/css"/>
 #+LINK_HOME: ../index.html
 
 * Quotes

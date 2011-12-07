@@ -2,7 +2,6 @@
 #+LANGUAGE: cn
 #+DESCRIPTION: 陈长兴太极拳十大要论
 #+KEYWORDS:  陈长兴 太极拳
-#+STYLE: <link rel="stylesheet" href="../css/default.css" type="text/css"/>
 #+LINK_HOME: ../index.html
 
 * 第一章 理

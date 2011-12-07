@@ -4,7 +4,6 @@
 #+EMAIL: freizl@gmail.com
 #+DATE: 2010-07-08
 #+OPTIONS: toc:1
-#+STYLE: <link rel="stylesheet" href="../css/default.css" type="text/css"/>
 #+LINK_HOME: ../index.html
 
 * Introduction

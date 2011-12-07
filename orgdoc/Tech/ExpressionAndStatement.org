@@ -3,7 +3,6 @@
 #+AUTHOR: Haisheng Wu
 #+EMAIL: freizl@gmail.com
 #+OPTIONS: toc:2
-#+STYLE: <link rel="stylesheet" href="../css/default.css" type="text/css"/>
 #+LINK_HOME: ../index.html
 
 * Expression

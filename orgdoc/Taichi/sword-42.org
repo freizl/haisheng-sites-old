@@ -2,7 +2,6 @@
 #+OPTIONS: toc:nil num:nil
 #+LANGUAGE: cn
 #+KEYWORDS:  太极拳
-#+STYLE: <link rel="stylesheet" href="../css/default.css" type="text/css"/>
 #+LINK_HOME: ../index.html
 
 1. 起势

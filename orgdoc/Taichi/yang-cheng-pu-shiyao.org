@@ -2,7 +2,6 @@
 #+LANGUAGE: cn
 #+DESCRIPTION: 杨澄甫口述-太极拳说十要
 #+KEYWORDS:  杨澄甫 太极拳
-#+STYLE: <link rel="stylesheet" href="../css/default.css" type="text/css"/>
 #+LINK_HOME: ../index.html
 
 * 虚灵顶劲

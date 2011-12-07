@@ -3,7 +3,6 @@
 #+DESCRIPTION: 杨澄甫传抄太极拳谱
 #+KEYWORDS:  杨澄甫 太极拳
 #+OPTIONS: toc:1
-#+STYLE: <link rel="stylesheet" href="../css/default.css" type="text/css"/>
 #+LINK_HOME: ../index.html
 
 * 太极平准腰顶解

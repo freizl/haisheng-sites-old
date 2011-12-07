@@ -1,4 +1,4 @@
-#+TITLE: Quotes from <Rework>
+#+TITLE: Quotes: <Rework>
 #+LANGUAGE: en
 #+AUTHOR: Haisheng Wu
 #+EMAIL: freizl@gmail.com

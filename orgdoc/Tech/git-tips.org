@@ -1,0 +1,19 @@
+#+TITLE: Git Tips
+#+LANGUAGE: en
+#+AUTHOR: Haisheng Wu
+#+EMAIL: freizl@gmail.com
+#+DATE: 2011-02-06
+#+OPTIONS: toc:1 num:nil
+#+KEYWORDS:  Git
+#+LINK_HOME: ../index.html
+
+* Fetch
+#+begin_src sh
+### fetch origin "FROM" : "TO"
+fetch = +refs/heads/master:refs/remotes/origin/master
+
+git fetch origin master:refs/remotes/origin/mymaster
+git fetch origin master:refs/remotes/origin/mymaster
+          topic:refs/remotes/origin/topic
+#+end_src
+

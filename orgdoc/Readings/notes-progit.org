@@ -1,25 +1,13 @@
-#+TITLE: Git Tips
+#+TITLE: Notes: <ProGit>
 #+LANGUAGE: en
 #+AUTHOR: Haisheng Wu
 #+EMAIL: freizl@gmail.com
-#+DATE: 2011-12-06
+#+DATE: 2011-01-06
 #+OPTIONS: toc:1 num:nil
 #+KEYWORDS:  Git
 #+LINK_HOME: ../index.html
 
-
-* Fetch
-#+begin_src sh
-### fetch origin "FROM" : "TO"
-fetch = +refs/heads/master:refs/remotes/origin/master
-
-git fetch origin master:refs/remotes/origin/mymaster
-git fetch origin master:refs/remotes/origin/mymaster
-          topic:refs/remotes/origin/topic
-#+end_src
-
-* ProGit
-** Chapter 9.3
+* Chapter 9.3
    - refs
    - refs/heads
    - refs/tags
@@ -36,7 +24,7 @@ _Questions_
    1. What does 'git branch B_NAME' actually do?
    2. What happened to HEAD when switching branch?
 
-** Chapter 6
+* Chapter 6
 
 #+begin_src sh
 git add -i
@@ -57,3 +45,7 @@ git log origin/master..HEAD
 git log branchA branchB ^branchC
 git log master...branchA
 #+end_src
+
+
+* Reference
+  + [[http://progit.org/book/][ProGit]]

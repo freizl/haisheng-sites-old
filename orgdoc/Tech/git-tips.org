@@ -17,3 +17,5 @@ git fetch origin master:refs/remotes/origin/mymaster
           topic:refs/remotes/origin/topic
 #+end_src
 
+* One commit
+  [[file:git_one_commit.pdf][What happened after one commit]]

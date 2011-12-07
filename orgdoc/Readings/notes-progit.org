@@ -46,6 +46,8 @@ git log branchA branchB ^branchC
 git log master...branchA
 #+end_src
 
+* Internal
+  [[file:git_internal.png][Git internal in one image]]
 
 * Reference
   + [[http://progit.org/book/][ProGit]]

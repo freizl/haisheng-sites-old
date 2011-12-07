@@ -19,3 +19,81 @@ git fetch origin master:refs/remotes/origin/mymaster
 
 * One commit
   [[file:git_one_commit.pdf][What happened after one commit]]
+
+* MISC
+#+begin_src sh
+git instaweb --httpd=lighttpd
+
+### anything need push
+git remote show origin
+
+### init new repos
+git clone --bare my_project my_project.git
+
+#################### git svn
+### 1 git svn init/fetch
+git svn init [-s] URL
+git svn fetch -r xxx|HEAD
+  a) it gets out 'all' branches/tags/trunk when no specific -r 
+  b) by change some at branch, chdir to branches folder and play with git 
+  c) if specify with -r, means "Just want to checkout that revision" 
+                         then try git svn rebase to update to HEAD 
+git svn rebase
+
+### 2 git svn clone
+# if any problems with init/fetch, just clone and seems this is recommanded...
+# seem should no targe name specified after URL
+# verify with git branch -r should show all svn branches and tags
+git svn clone [URL]
+
+### git svn branch
+# create svn branch
+git svn branch [svn_branch_1]
+
+# set up local branch to dcommit to svn branch
+git branch [local_branch_name] remotes/svn_branch_name
+
+# do change at git local branch and merge into master with
+git merge --squash
+git commit
+git svn dcommit
+
+
+### alternative with SVN MERGE
+svn mergeinfo ... :
+  git log master..branchx (diff commits that in branchx but master)
+  git branch [--no-merged|--merged]
+
+svn merge --dry-run
+  git merge --no-commit --no-ff
+
+### git log
+
+
+
+
+
+
+
+git reset --hard 7e83	
+git checkout 82f5 [-b branch_name]	This takes you back in time, while preserving newer commits.
+git checkout :/"my first brach"	        Jump to the commit that starts with a given message.
+git checkout master~5	                5th last saved state.(BRANCH_NAME~number)
+	
+git whatchanged 	
+git cherry-pick	
+	
+git rebase	
+git rebase -I HEAD~10	modify last 10 commits
+git commit --amend	
+	
+git filter-branch --tree-filter 'rm top/sececre/file' HEAD	remove file from all commit
+	
+git bundle	
+	
+git branch -r	
+git diff remotes/HEAD	diff with remote branch,a.k. what are local change
+	
+git reflog	
+
+#+end_src

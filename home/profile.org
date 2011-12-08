@@ -1,0 +1,86 @@
+#+TITLE: Resume
+#+LANGUAGE: en
+#+AUTHOR: Haisheng Wu
+#+EMAIL: freizl@gmail.com
+#+OPTIONS: num:1 toc:nil
+#+DESCRIPTION: resume, cv
+
+* PROFILE
+| Name         | Gender |      Mobile |    Born |
+|--------------+--------+-------------+---------|
+| Wu, Haisheng | Male   | 18616330571 | 1983-06 | 
+
+[[file:images/1.jpg][profile]]
+
+* SELF-ASSESSMENT
+  - Able to learn new technology quickly and work independently.
+  - Have taken initiative to proactively resolve the technical issues.
+  - Willing to share technical knowledge with team members actively.
+  - Have great passion on development, delivery as well as problem solving.
+  - Fluent English at both speaking and writing.
+  - Good team player.
+  - Have oversea working experience.
+
+* WORK EXPERIENCE
+| When              | Name                      | Title           | Type |
+|-------------------+---------------------------+-----------------+------|
+| 11/2010 - 10/2011 | EMC Corporation           | Senior Engineer |      |
+| 10/2006 - 10/2010 | Perficient China Ltd.     | Senior Engineer |      |
+| 07/2005 - 10/2006 | Zhejiang Guotai Tech Inc. | Engineer        |      |
+
+* PROJECT EXPERIENCE
+** REVIEWBOARD PROGRAM ENHANCEMENT
+*** Reponsibilities
+  - Enhancement development leverage Django framework.
+  - Integration implementation with Teamforge application.
+
+** PROJECT PORTAL PROGRAM
+*** Reponsibilities
+  - Develop UI utilizing Flex 4.
+  - Develop Web Services leverage Spring framework.
+  - Develop ETL scripts in Perl.
+
+** STATE CHILDREN’S HEALTH INSURANCE PROGRAM
+*** Reponsibilities
+  - Develop UI utilizing Google Web Toolkit.
+  - UI framework design with MVP pattern.
+  - Application domain development utilizing EJB/JPA.
+  - In charge of technical design.
+  - Lead junior team members.
+
+** ORACLE FUSION INTEGRATION & SUPPORT
+*** Reponsibilities
+  - Prepare Technical design documents.
+  - Develop ESB and BPEL Components with JDeveloper under Windows Platform.
+  - Conduct Unit Testing and End-2-End Testing.
+  - Develop Perl and Shell scripts to help in error log analysis under
+    Linux Platform.
+
+** HEALTH INSURANCE PROGRAM PLATFORM
+*** Reponsibilities
+ - Java Development base on JEE architecture.
+ - UI Development with Prototype JavaScript framework.
+ - Unit testing and functional testing.
+ - Implement Design documentations.
+
+* EDUCATION BACKGROUND
+| Time Period       | School                        | Major            | Degree   |
+|-------------------+-------------------------------+------------------+----------|
+| 09/2001 - 06/2005 | Zhejiang Gongshang University | Computer Science | Bachelor |
+
+* CERTIFICATIONS
+| Date    | Name                       |
+|---------+----------------------------|
+| 07/2010 | Scrum Master Certification |
+
+* PROFESSIONAL SKILLS
+| Name                  | Competency Level |
+|-----------------------+------------------|
+| Python                | Average          |
+| Bash Shell            | Average          |
+| Perl                  | Proficient       |
+| JavaScript            | Proficient       |
+| CSS                   | Proficient       |
+| SQL                   | Proficient       |
+| XML/XPath/XQuery/XLST | Proficient       |
+| Haskell               | Average          |

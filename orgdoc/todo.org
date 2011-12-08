@@ -7,8 +7,8 @@
 
 * TODO move google wiki to here and evernotes
   - [X] google notes
-  - notes on notebook
-  - [ ] clean git notes
+  - [ ] notes on notebook
+  - [X] clean git notes
 
 * FINISHED
 ** DONE minify css files

@@ -22,11 +22,11 @@
   - Have oversea working experience.
 
 * WORK EXPERIENCE
-| When              | Name                      | Title           | Type |
-|-------------------+---------------------------+-----------------+------|
-| 11/2010 - 10/2011 | EMC Corporation           | Senior Engineer |      |
-| 10/2006 - 10/2010 | Perficient China Ltd.     | Senior Engineer |      |
-| 07/2005 - 10/2006 | Zhejiang Guotai Tech Inc. | Engineer        |      |
+| When              | Name                      | Title           | Type    |
+|-------------------+---------------------------+-----------------+---------|
+| 11/2010 - 10/2011 | EMC Corporation           | Senior Engineer | WFOE    |
+| 10/2006 - 10/2010 | Perficient China Ltd.     | Senior Engineer | WFOE    |
+| 07/2005 - 10/2006 | Zhejiang Guotai Tech Inc. | Engineer        | Private |
 
 * PROJECT EXPERIENCE
 ** REVIEWBOARD PROGRAM ENHANCEMENT

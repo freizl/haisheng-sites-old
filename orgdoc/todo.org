@@ -8,8 +8,7 @@
 * TODO move google wiki to here and evernotes
   - [X] google notes
   - notes on notebook
-* TODO gitnotes in github
-  - move to here??
+  - [ ] clean git notes
 
 * FINISHED
 ** DONE minify css files
@@ -37,6 +36,10 @@ main = hakyll $ do
 ** DONE move notes from evernotes to here
    CLOSED: [2011-12-01 Thu 12:34]
    - NOTE: evernotes looks good so far for notes
+
+** DONE gitnotes in github
+  CLOSED: [2011-12-08 Thu 09:10]
+  - move to here??
 
 * QUICKLINKS
   - [[http://37signals.com/svn][37signals Blog]]

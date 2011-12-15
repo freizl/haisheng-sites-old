@@ -43,8 +43,6 @@ I picked this difference and make the following change and it worked out really 
 
 The result came under 1.5s at my local!
 
-**Why such differences?**
-
 ~~~~~
 
 startChain :: Word32 -> Int -> Int
@@ -65,6 +63,11 @@ Compile as otherwise Stack space overflow : `ghc --make p14-1.hs -O2 -fforce-rec
 Haskell Wiki[^HaskellWiki] presents several solutions. 
 One interested me is that levearages parallel programming `Control.Parallel`.
 
-(FIXME: will contiuse a little bit about parallel)
+## Further 
+
+### **Why solution 2 make great differences?**
+I asked question in haskell-beginer but still can not get clear understanding.
+
+### More about Parallel programming in Haskell?
 
 [^HaskellWiki]: [Haskell Wiki Euler Problem](http://www.haskell.org/haskellwiki/Euler_problems/11_to_20)

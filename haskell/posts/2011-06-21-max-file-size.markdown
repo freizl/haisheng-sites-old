@@ -35,7 +35,11 @@ getFilesInDir inp = do
   return $ concat files
 ~~~~~~
 
+PS:
+
 * Full source code here[^fullcode] or hpaste[^hpaste] which is cool as give me several suggestions.
+* I think hpaste using hlint to do code analysis and provide suggestions
+* Actually it is possible to have multiple Monad in one `do` levarage Monad Transformers.
 
 [^garriot]: [Never ending](http://www.never-ending.me/blog/2011/06/16/276/)
 [^fullcode]: [MaxSizeFile.hs](https://github.com/freizl/dive-into-haskell/blob/master/io/MaxSizeFile.hs)

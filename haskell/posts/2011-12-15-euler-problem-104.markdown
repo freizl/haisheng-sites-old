@@ -73,7 +73,7 @@ Several options used here are
   e.g.
  
 ~~~~~
-mean  s = {-# SCC "mean" #-} sum  s / fromIntegral (length s)
+  mean  s = {-# SCC "mean" #-} sum  s / fromIntegral (length s)
 ~~~~~
 
 - **caf-all**:
@@ -100,5 +100,5 @@ ghc --make -O2 -prof -auto-all -rtsopts p104.hs
 
 [^HaskellWiki]: [Haskell Wiki Euler Problem](http://www.haskell.org/haskellwiki/Euler_problems/100_to_110)
 [^Brent]: [Haskell Beginner 9175](http://comments.gmane.org/gmane.comp.lang.haskell.beginners/9175)
-[^chp25]: [Profiling and optimization](http://test)
-[^userguider]: [GHC User Guider](http://test)
+[^chp25]: [Profiling and optimization](http://book.realworldhaskell.org/read/profiling-and-optimization.html)
+[^userguider]: [GHC User Guider](http://www.haskell.org/ghc/docs/latest/html/users_guide/profiling.html)

@@ -1,0 +1,117 @@
+#+TITLE: Trivial bind examples in JavaScipts
+#+LANGUAGE: en
+#+AUTHOR: Haisheng Wu
+#+EMAIL: freizl@gmail.com
+#+OPTIONS: toc:nil
+#+KEYWORDS:  JavaScripts, bind, currying
+#+LINK_HOME: ../index.html
+
+* A function
+#+begin_src javascripts
+var fn = function (x, y, z) {
+  console.log("Shanghai is: ", this.shangHai);
+  console.log("The computation result is: ", x+y+z);
+}
+#+end_src
+
+* Run it
+#+begin_src javascripts
+fn(1);
+#+end_src
+/Output:/
+#+begin_src javascripts
+Shanghai is:  undefined
+The computation result is:  NaN
+#+end_src
+
+#+begin_src javascripts
+fn(1,2,3);
+#+end_src
+/Output:/
+#+begin_src javascripts
+Shanghai is:  undefined
+The computation result is:  6
+#+end_src
+
+* Run it with bind
+** Less
+#+begin_src javascripts
+fn.bind(null,1,2,3)
+#+end_src
+/Output:/
+#+begin_src javascripts
+function () { [native code] }
+#+end_src
+
+Hmm..., seems bind return a function rather apply the function and return value
+What will happen if invoke the new function?
+
+#+begin_src javascripts
+fn.bind(null,1,2,3)()
+#+end_src
+/Output:/
+#+begin_src javascripts
+Shanghai is:  undefined
+The computation result is:  6
+#+end_src
+
+That is what we want.
+
+** More
+What are results respectively of following expressions?
+  - `fn.bind(null, 1)()`
+  - `fn.bind(null, 1)(2)`
+  - `fn.bind(null, 1, 2)()`
+  - `fn.bind(null, 1, 2)(3)`
+  - `fn.bind(null, 1).bind(null, 2)()`
+  - `fn.bind(null, 1).bind(null, 2)(3)`
+
+Take one example
+#+begin_src javascripts
+fn.bind(null,1,2)(3)
+#+end_src
+
+/Output:/
+#+begin_src javascripts
+Shanghai is:  undefined
+The computation result is:  6
+#+end_src
+
+How it produce result 6?
+Because `bind` return is actually a partially applied function of`fn`. 
+
+In JavaScripts words, the new function got return is a closure
+which holding 1st and 2nd parameters for function `fn` and ready to
+accept the third parameter in order to fully apply function `fn`. 
+
+The concept is named *Currying* and find more in [[Further]] section.
+
+* Run with bind and context
+What I really mean context here is actually about `this` used in the
+function. Still now, `this.shangHai` always output `undefined` but we
+would like it to mean something.
+
+#+begin_src javascripts
+fn.bind({shangHai:"lovely"},1,2,3)();
+#+end_src
+/Output:/
+#+begin_src javascripts
+Shanghai is:  lovely
+The computation result is:  6
+#+end_src
+
+This time `this.shangHai` outputs "lovely" which obviously comes from
+the object that pass as first parameter of `bind`. 
+
+Generally speaking,`this` will be the object that pass in as the first
+parameter of bind when the object is not null.
+
+* Diff with `call` and `apply`
+My understanding the key point is bind return a function since `bind`
+is doing Currying. 
+
+By contract, `call` and `apply` is all about providing another way for
+invoking a function.
+
+* Further
+  - [[http://en.wikipedia.org/currying][Currying]]

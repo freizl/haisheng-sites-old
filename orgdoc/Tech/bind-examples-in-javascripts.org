@@ -2,12 +2,12 @@
 #+LANGUAGE: en
 #+AUTHOR: Haisheng Wu
 #+EMAIL: freizl@gmail.com
-#+OPTIONS: toc:nil
+#+OPTIONS: toc:1
 #+KEYWORDS:  JavaScripts, bind, currying
 #+LINK_HOME: ../index.html
 #+LaTeX_CLASS_OPTIONS: [11px,twocolumn]
 
-* A function
+* Defined a function
 #+begin_src javascripts
 var fn = function (x, y, z) {
   console.log("The value: ", this.shangHai);
@@ -93,7 +93,7 @@ thouht it can do Currying at some sense.
 
 * Run with bind and context
 What I really mean context here is actually about `this` used in the
-function. Still now, `this.shangHai` always output `undefined` but we
+function. Still now, _this.shangHai_ always output `undefined` but we
 would like it to mean something.
 
 #+begin_src javascripts

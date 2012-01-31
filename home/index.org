@@ -6,17 +6,14 @@
 #+OPTIONS: num:nil toc:nil
 #+DESCRIPTION: My home page
 
-I am a technical stuff at [[http://www.c3-e.com/][C3]] China located at Shanghai.
-
 * Sites
   + [[http://haskell.haisgwu.info/][All about haskell]]
   + [[http://docs.nfshost.com/][Tech notes]]
-  + [[http://daily.nfshost.com/][Daily]]
 
 * SNS
-  + [[https://kindle.amazon.com/profile/simon/1387293][Kindle share]]
-  + [[http://twitter.com/freizl][Twitter]]
   + [[http://www.douban.com/people/freizl/][Douban]]
+  + [[http://twitter.com/freizl][Twitter]]
+  + [[https://kindle.amazon.com/profile/simon/1387293][Kindle share]]
 
 * Github
   + [[https://github.com/freizl/haisheng-homepage][This site]]

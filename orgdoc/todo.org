@@ -47,3 +47,4 @@ main = hakyll $ do
   - [[http://orgmode.org/worg/index.html][Org-mode Community]]
   - [[https://www.evernote.com/][Evernote]]
   - [[https://www.amazon.com/clouddrive][Amazon cloud driver]]
+  - [[http://blogen.bysoftchina.com/][BySoft]]

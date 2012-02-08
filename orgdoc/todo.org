@@ -48,3 +48,5 @@ main = hakyll $ do
   - [[https://www.evernote.com/][Evernote]]
   - [[https://www.amazon.com/clouddrive][Amazon cloud driver]]
   - [[http://blogen.bysoftchina.com/][BySoft]]
+* Functional Programming
+  - [[http://www.cs.nott.ac.uk/~gmh/faq.html][FAQ by Graham Hutton]]

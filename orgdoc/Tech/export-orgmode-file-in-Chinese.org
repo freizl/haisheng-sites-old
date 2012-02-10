@@ -1,4 +1,4 @@
-#+TITLE: Export a OrgMode file is Chinese to PDF
+#+TITLE: Export a OrgMode doc in Chinese to PDF
 #+LANGUAGE: en
 #+AUTHOR: Haisheng Wu
 #+EMAIL: freizl@gmail.com
@@ -28,7 +28,9 @@ Then in the org file, add the following latex options.
 
 A littel drawback here is the `\begin{CJK}` is added as a header
 option whice due to it will not be closed when I checked with the tex
-output. People suggest to change to `#+LaTeX: \begin{CJK}{UTF8}{gbsn}`
+output. 
+
+People suggest to change to `#+LaTeX: \begin{CJK}{UTF8}{gbsn}`
 and append `#+LaTex: \end{CJK}` to the end of document.
 
 It all works out OK except the title which is Chinese characters as

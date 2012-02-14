@@ -47,5 +47,12 @@ All I need to do is adding following option to the org document.
 #+LATEX_HEADER: \setmainfont{WenQuanYi Micro Hei}
 #+end_src
 
+Also need to customize emacs latex to pdf process.
+#+begin_src emacs-lisp
+(setq org-latex-to-pdf-process
+      '("xelatex -interaction nonstopmode -output-directory %o %f"
+        "xelatex -interaction nonstopmode -output-directory %o %f"
+        "xelatex -interaction nonstopmode -output-directory %o %f"))
+#+end_src
 *PS: The main font has been setted may be vary among different systems.
 How I find a proper font under ubuntu is via command `fc-list`.*

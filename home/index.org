@@ -11,14 +11,11 @@
   + [[http://docs.nfshost.com/][Tech notes]]
 
 * SNS
+  + [[https://github.com/freizl/][Github]]
   + [[http://www.douban.com/people/freizl/][Douban]]
   + [[http://twitter.com/freizl][Twitter]]
   + [[https://kindle.amazon.com/profile/simon/1387293][Kindle share]]
 
-* Github
-  + [[https://github.com/freizl/haisheng-homepage][This site]]
-  + [[https://github.com/freizl/myDotEmacs][dotemacs]]
-  
 * Google codes
   + [[http://code.google.com/p/ipaper/][iPaper of Haskell]]
   + [[http://code.google.com/p/euler-in-lisp/][Euler in LISP]]

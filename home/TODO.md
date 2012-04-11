@@ -1,0 +1,52 @@
+#+TITLE: TODOs
+#+LANGUAGE: en
+#+AUTHOR: Haisheng Wu
+#+EMAIL: freizl@gmail.com
+#+DESCRIPTION: todo list
+#+OPTIONS: toc:1
+
+* TODO move google wiki to here and evernotes
+  - [X] google notes
+  - [ ] notes on notebook
+  - [X] clean git notes
+
+* FINISHED
+** DONE minify css files
+   CLOSED: [2011-12-01 Thu 12:34]
+   - NOET: leverage hakyll
+#+begin_src haskell
+{-# LANGUAGE OverloadedStrings #-}
+module Main where
+
+import Control.Monad(forM_)
+import Hakyll
+
+main :: IO ()
+main = hakyll $ do
+    -- Compress CSS
+    match "css/*" $ do
+      route   idRoute
+      compile compressCssCompiler
+    -- Static directories
+    forM_ ["*.html", "images/*", "*/*.html"] $ \f -> match f $ do
+      route   idRoute
+      compile copyFileCompiler
+#+end_src
+
+** DONE move notes from evernotes to here
+   CLOSED: [2011-12-01 Thu 12:34]
+   - NOTE: evernotes looks good so far for notes
+
+** DONE gitnotes in github
+  CLOSED: [2011-12-08 Thu 09:10]
+  - move to here??
+
+* QUICKLINKS
+  - [[http://37signals.com/svn][37signals Blog]]
+  - [[http://doc.norang.ca/org-mode.html][Organize Your Life In Plain Text]]
+  - [[http://orgmode.org/worg/index.html][Org-mode Community]]
+  - [[https://www.evernote.com/][Evernote]]
+  - [[https://www.amazon.com/clouddrive][Amazon cloud driver]]
+  - [[http://blogen.bysoftchina.com/][BySoft]]
+* Functional Programming
+  - [[http://www.cs.nott.ac.uk/~gmh/faq.html][FAQ by Graham Hutton]]

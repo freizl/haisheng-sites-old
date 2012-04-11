@@ -9,6 +9,8 @@ import Data.Monoid (mempty, mconcat)
 import Text.Pandoc
 import Hakyll
 
+postsWildcardMatch = "posts/**/*"
+
 main :: IO ()
 main = hakyllWith config $ do
     -- Compress CSS
@@ -22,12 +24,12 @@ main = hakyllWith config $ do
         compile copyFileCompiler
 
     -- 
-    match "sidebar.markdown" $ do
+    match "sidebar.md" $ do
         route   $ setExtension ".html"
         compile $ pageCompiler
         
     -- Render posts
-    match "posts/*" $ do
+    match postsWildcardMatch $ do
         route   $ setExtension ".html"
         compile $ pageCompilerWithToc
             >>> arr (renderDateField "date" "%B %e, %Y" "Date unknown")
@@ -40,7 +42,7 @@ main = hakyllWith config $ do
     match "posts.html" $ route idRoute
     create "posts.html" $ constA mempty
         >>> arr (setField "title" "All posts")
-        >>> requireAllA "posts/*" addPostList
+        >>> requireAllA postsWildcardMatch addPostList
         >>> applyTemplateCompiler "templates/posts.html"
         >>> applyTemplateCompiler "templates/default.html"
         >>> relativizeUrlsCompiler
@@ -49,16 +51,16 @@ main = hakyllWith config $ do
     match "index.html" $ route idRoute
     create "index.html" $ constA mempty
         >>> arr (setField "title" "Home")
-        >>> requireA "sidebar.markdown" (setFieldA "index" $ arr pageBody)
+        >>> requireA "sidebar.md" (setFieldA "index" $ arr pageBody)
         >>> requireA "tags" (setFieldA "tagcloud" (renderTagCloud'))
-        >>> requireAllA "posts/*" (id *** arr (take 9 . reverse . sortByBaseName) >>> addPostList)
+        >>> requireAllA postsWildcardMatch (id *** arr (take 9 . reverse . sortByBaseName) >>> addPostList)
         >>> applyTemplateCompiler "templates/index.html"
         >>> applyTemplateCompiler "templates/default.html"
         >>> relativizeUrlsCompiler
 
     -- Tags
     create "tags" $
-        requireAll "posts/*" (\_ ps -> readTags ps :: Tags String)
+        requireAll postsWildcardMatch (\_ ps -> readTags ps :: Tags String)
 
     -- Add a tag list compiler for every tag
     match "tags/*" $ route $ setExtension ".html"
@@ -69,7 +71,7 @@ main = hakyllWith config $ do
     -- Render RSS feed
     match "rss.xml" $ route idRoute
     create "rss.xml" $
-        requireAll_ "posts/*"
+        requireAll_ postsWildcardMatch
             >>> mapCompiler (arr $ copyBodyToField "description")
             >>> renderRss feedConfiguration
 

@@ -1,8 +1,0 @@
-#+TITLE: Hello Daily
-#+AUTHOR: Haisheng Wu
-#+LANGUAGE: cn
-#+DESCRIPTION: 
-#+KEYWORDS:  
-#+OPTIONS: 
-
-*let me move daily here*

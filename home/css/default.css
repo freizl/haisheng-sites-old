@@ -90,3 +90,7 @@ li:target, h2:target, h3:target {
     line-height : 12px;
     font-size: 11px
 }
+
+div.figure img {
+  width: 200px;
+}

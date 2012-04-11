@@ -6,11 +6,11 @@ import Prelude hiding (id)
 import Control.Arrow ((>>>), (***), arr)
 import Control.Category (id)
 import Data.Monoid (mempty, mconcat)
-
+import Text.Pandoc
 import Hakyll
 
 main :: IO ()
-main = hakyll $ do
+main = hakyllWith config $ do
     -- Compress CSS
     match "css/*" $ do
         route   idRoute
@@ -24,7 +24,7 @@ main = hakyll $ do
     -- Render posts
     match "posts/*" $ do
         route   $ setExtension ".html"
-        compile $ pageCompiler
+        compile $ pageCompilerWithToc
             >>> arr (renderDateField "date" "%B %e, %Y" "Date unknown")
             >>> renderTagsField "prettytags" (fromCapture "tags/*")
             >>> applyTemplateCompiler "templates/post.html"
@@ -76,6 +76,15 @@ main = hakyll $ do
     tagIdentifier :: String -> Identifier (Page String)
     tagIdentifier = fromCapture "tags/*"
 
+    pageCompilerWithToc = pageCompilerWith defaultHakyllParserState withToc
+    
+    withToc = defaultHakyllWriterOptions
+        { writerTableOfContents = True
+        , writerTemplate = "<h2 id=\"TOC\">TOC</h2>\n$toc$\n$body$"
+--        , writerTemplate = "$toc$\n$body$"
+        , writerStandalone = True
+        }
+
 -- | Auxiliary compiler: generate a post list from a list of given posts, and
 -- add it to the current page under @$posts@
 --
@@ -102,4 +111,10 @@ feedConfiguration = FeedConfiguration
     , feedDescription = "Haisheng's Home."
     , feedAuthorName  = "Haisheng Wu"
     , feedRoot        = "http://haisgwu.info"
+    }
+
+config :: HakyllConfiguration
+config = defaultHakyllConfiguration
+    { deployCommand = "rsync -c -r -ave 'ssh' \
+                      \_site/* freizl_qianxiyang@ssh.phx.nearlyfreespeech.net:/home/public"
     }

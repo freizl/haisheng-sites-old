@@ -1,16 +1,15 @@
 
-PROG  = hakyll
+PROG  = ./hakyll
 SOURCES = hakyll.hs
+HC=ghc
 
 SITE=_site
 CACHE=_cache
 
-GAE=gae
-
-default: rebuild
+default: preview
 
 $(PROG) : $(SOURCES)
-	$(HC) --make $< -o $@ $(HCFLAGS)
+	$(HC) --make $< -o $@
 
 clean:
 	rm -f $(SOURCES:.hs=.hi) $(SOURCES:.hs=.o) $(PROG)
@@ -18,9 +17,17 @@ clean:
 	rm -rf $(GAE)/$(SITE)
 
 build: $(PROG)
-	./$(PROG) build
+	$(PROG) build
 
 rebuild: $(PROG)
-	./$(PROG) rebuild
+	$(PROG) rebuild
 
-HC=ghc
+preview:
+	$(PROG) preview 9900
+
+bp: build preview
+
+rp: rebuild preview
+
+deploy: build
+	$(PROG) deploy

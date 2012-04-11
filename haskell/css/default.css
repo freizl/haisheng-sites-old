@@ -6,11 +6,7 @@ body {
   background-color: #ffffff;
   margin: 0px auto 0px auto;
   width: 700px;
-  background-image: url(../images/bg.png);
-}
-
-.navbar-inner {
-    margin: 50px 0 10px 0;
+  padding-top: 30px; 
 }
 
 .navbar-inner .container, .footer {
@@ -79,7 +75,18 @@ ol.unstyled {
   list-style: none;
 }
 
+li:target, h2:target, h3:target {
+  background-color: #DEF;
+}
+
 .clear {
   clear: both;
 }
 
+.footnotes li {
+  line-height : 12px;
+}
+.footnotes p {
+    line-height : 12px;
+    font-size: 11px
+}

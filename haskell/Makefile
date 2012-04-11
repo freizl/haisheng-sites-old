@@ -25,9 +25,12 @@ rebuild: $(PROG)
 preview:
 	$(PROG) preview 9900
 
+deploy: build
+	$(PROG) deploy
+
+p: preview
+
 bp: build preview
 
 rp: rebuild preview
 
-deploy: build
-	$(PROG) deploy

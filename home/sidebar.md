@@ -5,7 +5,6 @@ author: Haisheng, Wu
 
 # Sites
   + [All about Haskell](http://haskell.haisgwu.info/)
-  + [iPaper](http://code.google.com/p/ipaper/)
   + [Google Codes](http://code.google.com/u/103351924087869283689/)
   + [Github](https://github.com/freizl/)
 

@@ -46,7 +46,12 @@ git log master...branchA
 
 ## Internal
 
-![Git internal in one image](/images/git_internal.png)
+Questions
+
+  1. (tree 3c4e9c).bak --> (tree d8329f), what this mean??
+
+![Git internal in one image](http://freizl.github.com/images/git_internal.png)
+
 
 ## Reference
   + [ProGit](http://progit.org/book/)

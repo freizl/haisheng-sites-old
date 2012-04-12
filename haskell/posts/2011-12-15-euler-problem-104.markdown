@@ -14,9 +14,9 @@ They look quite similar and I can not figure out why the wiki solution can solve
 * My Solution
 
 ~~~~~~~{.haskell .numberLines}
-main = print $ snd $ head $ dropWhile 
-                            (\(x,y) -> (not . isLastNinePandigit "123456789") x) 
-                            (zip fibs [1..])
+main = print $ snd $ head $ 
+       dropWhile (\ (x,y) -> (not . isLastNinePandigit "123456789") x)
+                 (zip fibs [1..])
 
 bothNinePandigit digits n =  isFirstNinePandigit digits n 
                              && isLastNinePandigit digits n
@@ -41,7 +41,8 @@ isFibPan n =
       c = sort $ take 9 $ show n
   in  b == "123456789" && c == "123456789"
  
-ex_104 = snd $ head $ dropWhile (\(x,y) -> (not . isFibPan) x) (zip fibs [1..])
+ex_104 = snd $ head $ 
+         dropWhile (\(x,y) -> (not . isFibPan) x) (zip fibs [1..])
 
 ~~~~~~~
 

@@ -6,17 +6,6 @@ http://access.enom.com/
 1. [listing URLs] (http://johnmacfarlane.net/pandoc/scripting.html#queries-listing-urls)
 2. Markdown citations
 
-* TODO Pandoc slides creation
-  - Update hakyll.hs to create sildes in slides fold
-* TODO Git Objects
-  http://book.git-scm.com/1_the_git_object_model.html
-  http://book.git-scm.com/7_browsing_git_objects.html
-
-
-* TODO move google wiki to here and evernotes
-  - [ ] notes on notebook
-
-
 * TODO move notes from evernotes to here
    - NOTE: evernotes looks good so far for notes
 

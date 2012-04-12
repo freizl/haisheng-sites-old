@@ -1,5 +1,7 @@
+
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+/*  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+  font-family: Ubuntu, "Helvetica Neue", Helvetica, Arial;
   font-size: 13px;
   line-height: 18px;
   color: #333333;
@@ -13,6 +15,13 @@ body {
   margin-left: 5px;
 }
 
+.to-right {
+    float: right;
+}
+
+.to-left {
+    float: left;
+}
 
 .container h2 {
     border-bottom: 1px solid #C0C0C0;
@@ -94,3 +103,4 @@ li:target, h2:target, h3:target {
 div.figure img {
   width: 200px;
 }
+

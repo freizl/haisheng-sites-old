@@ -34,3 +34,7 @@ bp: build preview
 
 rp: rebuild preview
 
+########## Mirror to github
+
+mirror: build
+	cp -r $(SITE)/* ~/github/freizl.github.com/

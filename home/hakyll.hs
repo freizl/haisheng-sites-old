@@ -28,7 +28,13 @@ main = hakyllWith config $ do
         route   $ setExtension ".html"
         compile $ pageCompiler
         
-    -- Render posts
+    match "cv.md" $ do
+        route   $ setExtension ".html"
+        compile $ pageCompiler
+              >>> applyTemplateCompiler "templates/default.html"
+              >>> relativizeUrlsCompiler
+    
+-- Render posts
     match postsWildcardMatch $ do
         route   $ setExtension ".html"
         compile $ pageCompilerWithToc
@@ -77,6 +83,7 @@ main = hakyllWith config $ do
 
     -- Read templates
     match "templates/*" $ compile templateCompiler
+    
   where
     renderTagCloud' :: Compiler (Tags String) String
     renderTagCloud' = renderTagCloud tagIdentifier 100 120

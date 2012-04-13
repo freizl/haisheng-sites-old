@@ -1,5 +1,5 @@
 ---
-title: Quotes from Rework
+title: Quotes: Rework
 author: Haisheng, Wu
 tags: reading, programming
 ---

@@ -1,5 +1,5 @@
 ---
-title: Notes from ProGit
+title: Notes: ProGit
 author: Haisheng, Wu
 tags: reading, git
 ---

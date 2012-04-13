@@ -1,7 +1,7 @@
 ---
 title: Quotes from SoE DRAFT
 author: Haisheng, Wu
-tags: books
+tags: reading
 ---
 
 ## Notes

@@ -61,12 +61,13 @@ f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f 1.txt
 ### what are they
 
 ~~~~~~{.sh}
-
+## | Blob objects
 ~/github/haisheng-homepage/test$ git cat-file -p f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f
 11111
 ~/github/haisheng-homepage/test$ git cat-file -p 0ac1ae0ae201d8db7ac29015a6ba7494db37d59c
 22222
 
+## | Commit objects
 ~/github/haisheng-homepage/test$ git cat-file -p 8ef1919e4ca33cf602488a27b5671a6b6acf754b
 tree 8ed6deeabbbb89cda775aafc10745ea40dcd8456
 author Haisheng.W.WU <freizl@gmail.com> 1334230087 +0800
@@ -74,6 +75,7 @@ committer Haisheng.W.WU <freizl@gmail.com> 1334230087 +0800
 
 first commit
 
+## | Tree objects
 ~/github/haisheng-homepage/test$ git cat-file -p 8ed6deeabbbb89cda775aafc10745ea40dcd8456
 100644 blob f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f	1.txt
 100644 blob 0ac1ae0ae201d8db7ac29015a6ba7494db37d59c	2.txt
@@ -81,8 +83,8 @@ first commit
 ~~~~~~
 
 ## Further
-  - Git internal in one image [^git-one-image]
-  - What are tree objects / commits objects? [^git-scm]
+  - [Git object model]
+  - [Git internal in one image]
 
-[^git-one-image]: [Git internal in one image](http://0.0.0.0:9900/posts/readings/2012-04-08-notes-progit.html#internal)
-[^git-scm]: [Git-SCM book](http://book.git-scm.com/)
+[Git internal in one image]: (http://0.0.0.0:9900/posts/readings/2012-04-08-notes-progit.html#internal)
+[Git object model]: (http://book.git-scm.com/)

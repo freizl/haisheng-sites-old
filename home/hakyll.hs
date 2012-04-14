@@ -34,7 +34,12 @@ main = hakyllWith config $ do
               >>> applyTemplateCompiler "templates/default.html"
               >>> relativizeUrlsCompiler
     
--- Render posts
+    -- just copy pre-compiled slides.
+    match "slides/*.html" $ do
+        route   $ idRoute
+        compile $ copyFileCompiler
+
+    -- Render posts
     match postsWildcardMatch $ do
         route   $ setExtension ".html"
         compile $ pageCompilerWithToc

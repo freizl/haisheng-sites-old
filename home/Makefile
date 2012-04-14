@@ -6,7 +6,9 @@ HC=ghc
 SITE=_site
 CACHE=_cache
 
-default: preview
+.PHONY: slides
+
+default: build
 
 $(PROG) : $(SOURCES)
 	$(HC) --make $< -o $@
@@ -16,10 +18,10 @@ clean:
 	rm -rf $(SITE) $(CACHE)
 	rm -rf $(GAE)/$(SITE)
 
-build: $(PROG)
+build: $(PROG) slides
 	$(PROG) build
 
-rebuild: $(PROG)
+rebuild: $(PROG) slides
 	$(PROG) rebuild
 
 preview:
@@ -38,3 +40,13 @@ rp: rebuild preview
 
 mirror: build
 	cp -r $(SITE)/* ~/github/freizl.github.com/
+
+########## Compile slides
+
+PD=~/.cabal/bin/pandoc
+
+## just by lazy not to cut off md file ext.
+slides:
+	for f in `ls -1 slides/*.md`; do \
+	$(PD) -t dzslides -s "$$f" -o "$$f".html; \
+	done;

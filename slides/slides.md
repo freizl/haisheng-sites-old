@@ -23,7 +23,6 @@
 
 ------------------
 
-![picture of spaghetti](../images/1.jpg)
 
 ## Going to sleep
 

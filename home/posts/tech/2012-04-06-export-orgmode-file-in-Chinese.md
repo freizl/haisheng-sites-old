@@ -1,7 +1,7 @@
 ---
 title: Export a OrgMode doc in Chinese to PDF
 author: Haisheng, Wu
-tags: orgmode, latex
+tags: emacs, latex
 ---
 
 ## Introduction

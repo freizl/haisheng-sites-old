@@ -19,7 +19,7 @@ main = hakyllWith config $ do
         compile compressCssCompiler
 
     -- Static directories
-    forM_ ["images/*"] $ \f -> match f $ do
+    forM_ ["images/*", "codes/*"] $ \f -> match f $ do
         route   idRoute
         compile copyFileCompiler
 
@@ -64,7 +64,7 @@ main = hakyllWith config $ do
         >>> arr (setField "title" "Home")
         >>> requireA "sidebar.md" (setFieldA "index" $ arr pageBody)
         >>> requireA "tags" (setFieldA "tagcloud" (renderTagCloud'))
-        >>> requireAllA postsWildcardMatch (id *** arr (take 9 . reverse . sortByBaseName) >>> addPostList)
+        >>> requireAllA postsWildcardMatch (id *** arr (take 9 . reverse . chronological) >>> addPostList)
         >>> applyTemplateCompiler "templates/index.html"
         >>> applyTemplateCompiler "templates/default.html"
         >>> relativizeUrlsCompiler
@@ -109,7 +109,7 @@ main = hakyllWith config $ do
 --
 addPostList :: Compiler (Page String, [Page String]) (Page String)
 addPostList = setFieldA "posts" $
-    arr (reverse . sortByBaseName)
+    arr (reverse . chronological)
         >>> require "templates/postitem.html" (\p t -> map (applyTemplate t) p)
         >>> arr mconcat
         >>> arr pageBody

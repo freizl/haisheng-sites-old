@@ -1,1 +1,18 @@
 http://access.enom.com
+
+
+This is the source code to my home page. It is built with hakyll.
+
+    $ ghc --make hakyll
+
+then to build:
+
+    $ ./hakyll build
+
+or to preview:
+
+    $ ./hakyll preview
+
+TODO:
+  1. Generate sitemaps
+  2. category + tags ??

@@ -1,7 +1,7 @@
 ---
 title: Quotes: Rework
 author: Haisheng, Wu
-tags: reading, programming
+tags: reading
 ---
 
 ## Quotes

@@ -1,18 +1,11 @@
-http://access.enom.com
+## Links
+  - http://access.enom.com
 
+## Build
+  - `make build`
+  - `make bp` (build and preview)
+  - etc.
 
-This is the source code to my home page. It is built with hakyll.
-
-    $ ghc --make hakyll
-
-then to build:
-
-    $ ./hakyll build
-
-or to preview:
-
-    $ ./hakyll preview
-
-TODO:
+## TODO
   1. Generate sitemaps
   2. category + tags ??

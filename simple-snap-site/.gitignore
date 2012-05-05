@@ -1,0 +1,9 @@
+*.hi
+*.o
+dist
+log
+tmp
+*.prof
+*.html
+site_key.txt
+*.log

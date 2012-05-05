@@ -2,7 +2,7 @@ Name:                simple-site
 Version:             0.1
 Synopsis:            Simple site generator
 Description:         A simple web site in snap
-License:             BSD
+License:             BSD3
 Author:              Haisheng,Wu
 Maintainer:          freizl@gmail.com
 Stability:           Experimental

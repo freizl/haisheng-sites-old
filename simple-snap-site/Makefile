@@ -30,6 +30,6 @@ build: conf
 rebuild: clean build
 
 preview:
-	$(PROG_PREV) -p 8800
+	$(PROG_PREV) -p 8888
 
 

@@ -1,1 +1,0 @@
-## Wencome FAQ section

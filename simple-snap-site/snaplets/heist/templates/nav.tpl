@@ -1,15 +1,7 @@
 <div id="navigation">
-  <ul>
-    <tpl-level-1>
-      <li>
-        <a href="/${tplname}/index"><tplname/></a>
-      </li>
-    </tpl-level-1>
-  </ul>
+  <a class="brand" href="/">Home</a>
+  <tpl-level-1>
+        <a class="brand" href="/${tplname}/index"><tplname/></a>
+  </tpl-level-1>
 </div>
 
-<div id="navigation2">
-  <tpl-level-2>
-    <a href="/${mdbase}/${mdname}"><mdname/></a>
-  </tpl-level-2>
-</div>

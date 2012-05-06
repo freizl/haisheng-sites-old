@@ -11,15 +11,7 @@ default: build
 clean:
 	rm -rf $(DIST)
 
-## Enable Development mode
-conf-dev:
-	cabal --flags="development" configure
-
-build-dev: conf-dev
-	cabal build
-
-bp: build-dev preview
-
+bp: build preview
 
 conf:
 	cabal configure

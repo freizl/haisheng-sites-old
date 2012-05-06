@@ -92,7 +92,8 @@ dirHandler :: Handler App App ()
 dirHandler = do
   adir   <- decodedParam "dir"
   post <- decodedParam "post"
-  heistLocal (bindSplices $ splices adir post) $ render (adir `BS.append` "/index")  
+  let tpl = if post /= "index" then "/default" else "/index"
+  heistLocal (bindSplices $ splices adir post) $ render (adir `BS.append` tpl)  
   where 
     splices :: ByteString -> ByteString -> [(T.Text, Splice AppHandler)]
     splices d p = [ ("mdfile", mdSplices p)
@@ -107,6 +108,7 @@ decodedParam p = fromMaybe "" <$> getParam p
 
 ------------------------------------------------------------------------------
 
+-- | list first-level diretories under templates
 templateSplice :: Splice AppHandler
 templateSplice = do
   mp <- lift $ gets _tplmap
@@ -114,6 +116,7 @@ templateSplice = do
   where
     renderp n = runChildrenWithText $ [("tplname",n)]
 
+-- | List markdown files per @key@, a.k.a directory
 markdownSplice :: ByteString -> Splice AppHandler
 markdownSplice key = do
   mp <- lift $ gets _tplmap
@@ -126,8 +129,8 @@ markdownSplice key = do
 serverVersion :: SnapletSplice b v
 serverVersion = liftHeist $ textSplice $ T.decodeUtf8 snapServerVersion
 
-extraSplices :: Initializer App App ()
-extraSplices  = do
+addCommonSplices :: Initializer App App ()
+addCommonSplices  = do
   addSplices [ ("snap-version", serverVersion) 
              , ("tpl-level-1", liftHeist templateSplice) ]
 
@@ -149,7 +152,7 @@ app = makeSnaplet "app" "An snaplet example application." Nothing $ do
     h <- nestSnaplet "heist" heist $ heistInit "templates"
     tmap <- liftIO getTemplates
     addRoutes routes
-    extraSplices
+    addCommonSplices
     return $ App h tmap
 
 

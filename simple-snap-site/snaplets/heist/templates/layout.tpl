@@ -2,21 +2,18 @@
 <html>
   <head>
     <title>Snap web server</title>
-    <link rel="stylesheet" type="text/css" href="/screen.css"/>
+    <link rel="stylesheet" type="text/css" href="/main.css"/>
   </head>
 
   <body>
 
     <apply template="nav" />
 
-    <div id="content">
+    <div class="container">
       <content />
     </div>
-    
-    <p>
-      <a href="/">Return</a>
-    </p>
 
+    <div class="clear"></div>
     <footer>
       power by <a href="http://www.snapframework.com">Snap</a> <snap-version/>
     </footer>

@@ -1,5 +1,3 @@
 <apply template="layout">
-
-      <h1>It works!</h1>
-
+  <markdown file="${mdfile}" />
 </apply>

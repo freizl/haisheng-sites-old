@@ -23,6 +23,7 @@ import           System.Directory
 import           System.FilePath.Posix
 import           Text.Templating.Heist
 import           Text.XmlHtml hiding (render)
+import qualified Text.XmlHtml as X
 import           Control.Applicative
 import           Data.Maybe (fromMaybe)
 import qualified Data.Map as Map
@@ -66,12 +67,6 @@ isMarkdown (x, y) = y == ".md" && x /= "index"
 firstLevelTpl :: (FilePath,String) -> Bool
 firstLevelTpl (_, y) = y == ""
 
-getTemplates1 :: IO [T.Text]
-getTemplates1 = do
-  base <- getCurrentDirectory
-  liftM (map (T.pack . fst) . filter firstLevelTpl . map splitExtension)
-        (getDirectoryContents $ base </> snapletTemplates)
-
 getTemplates :: IO TplMap
 getTemplates = do
   base <- getCurrentDirectory
@@ -97,7 +92,8 @@ dirHandler = do
   where 
     splices :: ByteString -> ByteString -> [(T.Text, Splice AppHandler)]
     splices d p = [ ("mdfile", mdSplices p)
-                  , ("tpl-level-2", markdownSplice d)]
+                  , ("tpl-level-2", markdownSplice d) 
+                  ]
     mdSplices :: ByteString -> Splice AppHandler
     mdSplices p = do return $ [TextNode $ T.decodeUtf8 (BS.concat [p,".md"]) ]
   
@@ -112,9 +108,15 @@ decodedParam p = fromMaybe "" <$> getParam p
 templateSplice :: Splice AppHandler
 templateSplice = do
   mp <- lift $ gets _tplmap
-  mapSplices renderp $ map T.decodeUtf8 $ Map.keys mp
+  currentURI <- lift $ rqURI <$> getRequest
+  mapSplices (renderp currentURI) $ "/" : (Map.keys mp)
   where
-    renderp n = runChildrenWithText $ [("tplname",n)]
+    -- FIXME: this function looks tricky
+    renderp k n 
+      | "/" `BS.append` n `BS.isPrefixOf` k  = runChildrenWithText $ [("tplname", T.decodeUtf8 n), ("addclass", "active")]
+      | n == "/" && n == k                   = return [X.Element "a" [("href", "/"), ("class","brand active")] [X.TextNode "Home"]]
+      | n == "/"                             = return [X.Element "a" [("href", "/"), ("class","brand")] [X.TextNode "Home"]]
+      | otherwise                            = runChildrenWithText $ [("tplname", T.decodeUtf8 n)]
 
 -- | List markdown files per @key@, a.k.a directory
 markdownSplice :: ByteString -> Splice AppHandler
@@ -131,7 +133,7 @@ serverVersion = liftHeist $ textSplice $ T.decodeUtf8 snapServerVersion
 
 addCommonSplices :: Initializer App App ()
 addCommonSplices  = do
-  addSplices [ ("snap-version", serverVersion) 
+  addSplices [ ("snap-version", serverVersion)
              , ("tpl-level-1", liftHeist templateSplice) ]
 
 ------------------------------------------------------------------------------

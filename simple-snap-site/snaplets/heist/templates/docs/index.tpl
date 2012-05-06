@@ -1,6 +1,6 @@
 <apply template="layout">
 
-  <h2>Just docs index</h2>
+  <h2>Just docs</h2>
 
   <apply template="nav2" />
 

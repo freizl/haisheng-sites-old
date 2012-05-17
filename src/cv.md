@@ -17,10 +17,10 @@ author: Haisheng, Wu
   - Fluent English at both speaking and writing.
     
 ## Technical skills
-  - **Languages**: JavaScript, Java, Python, Perl, Shell, ActionScript
-  - **Web Technologies**: ExtJS, PrototypeJS, CSS, XML, XLST, GWT, Django
-  - **Open source library**: NodeJS, Spring, Hibernate, WebWork
-  - **Database**: MySQL, Oracle
+  - **Languages**: JavaScript, Haskell, Python, Perl, Shell, Java
+  - **Web Technologies**: ExtJS, PrototypeJS, jQuery, CSS, HTML
+  - **Open source library**: NodeJS, Spring, Django, GWT
+  - **Database**: MySQL, Oracle, MondoDB
   - **Operating System**: Ubuntu, CentOS, WindowsXP
 
 ## Work experience

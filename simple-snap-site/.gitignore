@@ -7,3 +7,4 @@ tmp
 *.html
 site_key.txt
 *.log
+_site

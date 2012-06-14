@@ -134,6 +134,6 @@ feedConfiguration = FeedConfiguration
 
 config :: HakyllConfiguration
 config = defaultHakyllConfiguration
-    { deployCommand = "rsync -c -r -ave 'ssh' \
-                      \_site/* freizl_freizl@ssh.phx.nearlyfreespeech.net:/home/public"
-    }
+    --{ deployCommand = "rsync -c -r -ave 'ssh' \
+    --                  \_site/* freizl_freizl@ssh.phx.nearlyfreespeech.net:/home/public"
+    --}

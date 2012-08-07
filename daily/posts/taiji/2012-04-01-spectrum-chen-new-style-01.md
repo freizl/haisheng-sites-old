@@ -1,5 +1,5 @@
 ---
-title: 拳谱:陈式新架一路七十五式
+title: 拳谱 - 陈式新架一路七十五式
 author: Haisheng, Wu
 tags: taiji,spectrum
 ---

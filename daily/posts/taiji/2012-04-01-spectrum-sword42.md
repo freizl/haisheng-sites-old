@@ -1,5 +1,5 @@
 ---
-title: 拳谱:四十二式太极剑
+title: 拳谱 - 四十二式太极剑
 author: Haisheng, Wu
 tags: taiji,spectrum
 ---

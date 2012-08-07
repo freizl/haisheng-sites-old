@@ -23,11 +23,6 @@ main = hakyllWith config $ do
         route   idRoute
         compile copyFileCompiler
 
-    -- 
-    match "sidebar.md" $ do
-        route   $ setExtension ".html"
-        compile $ pageCompiler
-
     -- Render posts
     match postsWildcardMatch $ do
         route   $ setExtension ".html"
@@ -38,26 +33,22 @@ main = hakyllWith config $ do
             >>> applyTemplateCompiler "templates/default.html"
             >>> relativizeUrlsCompiler
 
-    -- Render posts list
-    match "posts.html" $ route idRoute
-    create "posts.html" $ constA mempty
-        >>> arr (setField "title" "All posts")
-        >>> requireAllA postsWildcardMatch addPostList
-        >>> applyTemplateCompiler "templates/posts.html"
-        >>> applyTemplateCompiler "templates/default.html"
-        >>> relativizeUrlsCompiler
-
     -- Index
     match "index.html" $ route idRoute
     create "index.html" $ constA mempty
         >>> arr (setField "title" "Home")
-        >>> requireA "sidebar.md" (setFieldA "index" $ arr pageBody)
-        >>> requireA "tags" (setFieldA "tagcloud" (renderTagCloud'))
-        >>> requireAllA postsWildcardMatch (id *** arr (take 9 . reverse . chronological) >>> addPostList)
+        >>> requireAllA postsWildcardMatch (id *** arr (take 10 . reverse . chronological) >>> addPostList)
         >>> applyTemplateCompiler "templates/index.html"
         >>> applyTemplateCompiler "templates/default.html"
         >>> relativizeUrlsCompiler
 
+    match "tagcloud.html" $ route idRoute
+    create "tagcloud.html" $ constA mempty
+        >>> arr (setField "title" "TagClound")
+        >>> requireA "tags" (setFieldA "tagcloud" (renderTagCloud'))
+        >>> applyTemplateCompiler "templates/tagcloud.html"
+        >>> applyTemplateCompiler "templates/default.html"
+    
     -- Tags
     create "tags" $
         requireAll postsWildcardMatch (\_ ps -> readTags ps :: Tags String)
@@ -88,10 +79,10 @@ main = hakyllWith config $ do
     pageCompilerWithToc = pageCompilerWith defaultHakyllParserState withToc
     
     withToc = defaultHakyllWriterOptions
-        { writerTableOfContents = True
-        , writerTemplate = "<h2 id=\"TOC\">TOC</h2>\n$toc$\n$body$"
-        , writerStandalone = True
-        }
+--        { writerTableOfContents = True
+--        , writerTemplate = "<h2 id=\"TOC\">TOC</h2>\n$toc$\n$body$"
+--        , writerStandalone = True
+--        }
 
 -- | Auxiliary compiler: generate a post list from a list of given posts, and
 -- add it to the current page under @$posts@

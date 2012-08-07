@@ -1,5 +1,5 @@
 ---
-title: Quotes: Tenet
+title: 书摘 - Tenet
 author: Haisheng, Wu
 tags: reading
 ---

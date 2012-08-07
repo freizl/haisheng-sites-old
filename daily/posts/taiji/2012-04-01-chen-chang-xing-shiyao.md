@@ -1,5 +1,5 @@
 ---
-title: 陈长兴太极拳十大要论
+title: 拳论 - 陈长兴太极拳十大要论
 author: Haisheng, Wu
 tags: taiji
 ---

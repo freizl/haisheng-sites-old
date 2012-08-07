@@ -1,5 +1,5 @@
 ---
-title: 杨澄甫口述-太极拳说十要
+title: 拳论 - 杨澄甫口述-太极拳说十要
 author: Haisheng, Wu
 tags: taiji
 ---

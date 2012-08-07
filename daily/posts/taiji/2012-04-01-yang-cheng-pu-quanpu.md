@@ -1,5 +1,5 @@
 ---
-title: 杨澄甫传抄太极拳谱
+title: 拳论 - 杨澄甫传抄太极拳谱
 author: Haisheng, Wu
 tags: taiji
 ---

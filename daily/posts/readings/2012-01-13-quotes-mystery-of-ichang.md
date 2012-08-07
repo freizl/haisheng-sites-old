@@ -1,5 +1,5 @@
 ---
-title: Quotes: 易经的奥秘
+title: 书摘 - 易经的奥秘
 author: Haisheng, Wu
 tags: reading
 ---

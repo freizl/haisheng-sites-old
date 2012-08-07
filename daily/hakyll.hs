@@ -37,7 +37,7 @@ main = hakyllWith config $ do
     match "index.html" $ route idRoute
     create "index.html" $ constA mempty
         >>> arr (setField "title" "Home")
-        >>> requireAllA postsWildcardMatch (id *** arr (take 10 . reverse . chronological) >>> addPostList)
+        >>> requireAllA postsWildcardMatch (id *** arr (take 20 . reverse . chronological) >>> addPostList)
         >>> applyTemplateCompiler "templates/index.html"
         >>> applyTemplateCompiler "templates/default.html"
         >>> relativizeUrlsCompiler

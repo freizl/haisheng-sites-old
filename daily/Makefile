@@ -35,18 +35,3 @@ p: preview
 bp: build preview
 
 rp: rebuild preview
-
-########## Mirror to github
-
-mirror: build
-	cp -r $(SITE)/* ~/github/freizl.github.com/
-
-########## Compile slides
-
-PD=~/.cabal/bin/pandoc
-
-## just by lazy not to cut off md file ext.
-slides:
-	for f in `ls -1 slides/*.md`; do \
-	$(PD) -t dzslides -s "$$f" -o "$$f".html; \
-	done;

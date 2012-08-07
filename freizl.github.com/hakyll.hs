@@ -126,10 +126,10 @@ makeTagList tag posts =
 
 feedConfiguration :: FeedConfiguration
 feedConfiguration = FeedConfiguration
-    { feedTitle       = "Haisheng's Blogs RSS feed."
-    , feedDescription = "Haisheng's Home."
+    { feedTitle       = "Haisheng's Tech Blog RSS feed."
+    , feedDescription = "Haisheng's Tech Blog."
     , feedAuthorName  = "Haisheng Wu"
-    , feedRoot        = "http://haisgwu.info"
+    , feedRoot        = "http://freizl.github.com/"
     }
 
 config :: HakyllConfiguration

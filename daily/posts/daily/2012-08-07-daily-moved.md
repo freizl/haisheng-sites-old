@@ -1,5 +1,5 @@
 ---
-title: 日志搬家以及第一篇在豆瓣的日志
+title: 日志搬家
 author: Haisheng, Wu
 tags: 日志
 ---

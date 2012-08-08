@@ -41,17 +41,10 @@ main = hakyllWith config $ do
         >>> applyTemplateCompiler "templates/index.html"
         >>> applyTemplateCompiler "templates/default.html"
         >>> relativizeUrlsCompiler
-
-    match "tagcloud.html" $ route idRoute
-    create "tagcloud.html" $ constA mempty
-        >>> arr (setField "title" "TagClound")
-        >>> requireA "tags" (setFieldA "tagcloud" (renderTagCloud'))
-        >>> applyTemplateCompiler "templates/tagcloud.html"
-        >>> applyTemplateCompiler "templates/default.html"
     
     -- Tags
     create "tags" $
-        requireAll postsWildcardMatch (\_ ps -> readTags ps :: Tags String)
+        requireAll postsWildcardMatch (\_ ps -> readCategory ps :: Tags String)
 
     -- Add a tag list compiler for every tag
     match "tags/*" $ route $ setExtension ".html"

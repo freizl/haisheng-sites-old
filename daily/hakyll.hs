@@ -42,6 +42,14 @@ main = hakyllWith config $ do
         >>> applyTemplateCompiler "templates/default.html"
         >>> relativizeUrlsCompiler
     
+    match "posts.html" $ route idRoute
+    create "posts.html" $ constA mempty
+        >>> arr (setField "title" "All posts")
+        >>> requireAllA postsWildcardMatch addPostList
+        >>> applyTemplateCompiler "templates/posts.html"
+        >>> applyTemplateCompiler "templates/default.html"
+        >>> relativizeUrlsCompiler
+
     -- Tags
     -- TODO: add each category as a link at top auto.
     create "tags" $

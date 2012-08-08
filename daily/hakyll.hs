@@ -43,6 +43,7 @@ main = hakyllWith config $ do
         >>> relativizeUrlsCompiler
     
     -- Tags
+    -- TODO: add each category as a link at top auto.
     create "tags" $
         requireAll postsWildcardMatch (\_ ps -> readCategory ps :: Tags String)
 

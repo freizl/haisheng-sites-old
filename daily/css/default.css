@@ -100,3 +100,14 @@ footer p {
 .figure img {
     width: 400px;
 }
+
+pre code {
+    display: block;
+    padding: 8px;
+    margin-bottom: 2em;
+    font-family: monospace, "Courier New";
+}
+code {
+    border: 1px dotted #A0A0A0;
+    border-radius: 5px;
+}

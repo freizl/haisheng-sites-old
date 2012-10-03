@@ -85,7 +85,7 @@ Several options used here are
   force full recompilation.
 
 
-More details could go to chapter 25[^chp25] of <Real World Haskell> and GHC user guider chapter 5[^userguider].
+More details could go to chapter 25[^chp25] of [Real World Haskell] and GHC user guider chapter 5[^userguider].
 
 ~~~~~
 # build with prof option on

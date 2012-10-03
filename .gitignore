@@ -4,3 +4,4 @@ _*
 hakyll
 cabal-dev
 slides/*.html
+test*

@@ -6,6 +6,7 @@ author: Haisheng, Wu
 ## Profile
   - Email       : freizl [AT] gmail.com
   - Born        : Jun 1983
+  - github      : http://github.com/freizl  
     
 ## Self assessment
   - Be able to learn new technology quickly and work independently.
@@ -17,13 +18,15 @@ author: Haisheng, Wu
   - Fluent English at both speaking and writing.
     
 ## Technical skills
-  - **Languages**: JavaScript, Haskell, Python, Perl, Shell, Java
-  - **Web Technologies**: ExtJS, PrototypeJS, jQuery, CSS, HTML
-  - **Open source library**: NodeJS, Spring, Django, GWT
-  - **Database**: MySQL, Oracle, MondoDB
+  - **Languages**: JavaScript, Haskell, Python, Java, Shell, Perl
+  - **Web Technologies**: jQuery, CSS3, HTML5, ExtJS, PrototypeJS
+  - **Open source library**: NodeJS, BackboneJS, requireJS, Spring, Django, GWT
+  - **Database**: MySQL, Oracle, MongoDB
   - **Operating System**: Ubuntu, CentOS, WindowsXP
 
 ## Work experience
+  - Apr 2012 - Present, Software Engineer at [eBay COE].\
+    *Front end engineer at StubHub COE team*
   - Sep 2011 - Feb 2012, Technical Staff at [C3-e] Tech (Shanghai) Co.
     Ltd.\
     *UI and applications engineer.*
@@ -34,6 +37,8 @@ author: Haisheng, Wu
   - July 2005 - Oct 2006, Engineer at Zhejiang Guotai Tech Inc.\    
     *Web based Java application engineer.*
 
+[StubHub]: http://www.stubhub.com/
+[eBay COE]: http://wwww.ebay.com/
 [C3-e]: http://www.c3-e.com/
 [EMC]: http://www.emc.com/
 [Perficient China]: http://www.perficient.com/About/Locations/China
@@ -42,9 +47,4 @@ author: Haisheng, Wu
   - 2001 - 2005, [Zhejiang Gongshang University], Bachelor of Computer Science
 
 [Zhejiang Gongshang University]: http://www.zjgsu.edu.cn/
-  
-## Certifications
-  - July 2010, [Scrum Master Certification]
-
-[Scrum Master Certification]: http://www.scrumalliance.org/pages/certified_scrummaster_csm
 

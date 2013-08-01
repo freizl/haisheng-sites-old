@@ -7,7 +7,7 @@ author: Haisheng, Wu
   - Email       : freizl [AT] gmail.com
   - Born        : Jun 1983
   - github      : http://github.com/freizl
-    
+
 ## Self assessment
   - Be able to learn new technology quickly and work independently.
   - Have taken initiative to proactively resolve the technical issues.
@@ -16,9 +16,9 @@ author: Haisheng, Wu
   - Good team player and leadership experience.
   - Have oversea working experience.
   - Fluent English at both speaking and writing.
-    
+
 ## Technical skills
-  - **Languages**: JavaScript, Haskell, Python, Java, Shell, Perl
+  - **Languages**: JavaScript, Java, Haskell, Python, Shell, Perl
   - **Web Technologies**: jQuery, CSS3, HTML5, ExtJS, PrototypeJS
   - **Open source library**: NodeJS, BackboneJS, requireJS, Spring, Django, GWT
   - **Database**: MySQL, Oracle, MongoDB
@@ -34,7 +34,7 @@ author: Haisheng, Wu
     *Applications & tools engineer and build master.*
   - Oct 2006 - Oct 2010, Senior Engineer at [Perficient China] Ltd.\
     *Enterprise Software engineer.*
-  - July 2005 - Oct 2006, Engineer at Zhejiang Guotai Tech Inc.\    
+  - July 2005 - Oct 2006, Engineer at Zhejiang Guotai Tech Inc.\
     *Web based Java application engineer.*
 
 [StubHub]: http://www.stubhub.com/
@@ -50,13 +50,14 @@ author: Haisheng, Wu
 
 # Project experience
 
-## International site build up
-  + The purpose of this project is to build international sites, outside US and UK, 
-    in order to expand StubHub business market with better user experience.
+## Eu-Hub Project
+  + The purpose of this project is to build international sites, especially for
+    european countries, in order to expand StubHub business market with better user experience.
   + Responsibilities
-    + Design and implement of i18n/L10N to the site, such as multiple currency, date, 
+    + Design and implement I18N/L10N to the site, such as multiple currency, date,
       number formatting, multiple language.
-    + Involve into design and implement next UI generation MVC framework.
+    + Involve into design and implement international componests to the next UI
+      generation MVC framework.
 
 ## Energy and Emissions Management Product
   + The purpose of the product is to build software solutions that

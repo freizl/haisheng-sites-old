@@ -23,17 +23,17 @@ main = hakyllWith config $ do
         route   idRoute
         compile copyFileCompiler
 
-    -- 
+    --
     match "sidebar.md" $ do
         route   $ setExtension ".html"
         compile $ pageCompiler
-        
-    match "cv.md" $ do
+
+    forM_ ["cv.md", "cv2.md"] $ \f -> match f $ do
         route   $ setExtension ".html"
         compile $ pageCompiler
               >>> applyTemplateCompiler "templates/default.html"
               >>> relativizeUrlsCompiler
-    
+
     -- just copy pre-compiled slides.
     match "slides/*.html" $ do
         route   $ idRoute
@@ -88,7 +88,7 @@ main = hakyllWith config $ do
 
     -- Read templates
     match "templates/*" $ compile templateCompiler
-    
+
   where
     renderTagCloud' :: Compiler (Tags String) String
     renderTagCloud' = renderTagCloud tagIdentifier 100 120
@@ -97,7 +97,7 @@ main = hakyllWith config $ do
     tagIdentifier = fromCapture "tags/*"
 
     pageCompilerWithToc = pageCompilerWith defaultHakyllParserState withToc
-    
+
     withToc = defaultHakyllWriterOptions
         { writerTableOfContents = True
         , writerTemplate = "<h2 id=\"TOC\">TOC</h2>\n$toc$\n$body$"

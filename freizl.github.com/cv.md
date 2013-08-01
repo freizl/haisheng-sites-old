@@ -6,8 +6,8 @@ author: Haisheng, Wu
 ## Profile
   - Email       : freizl [AT] gmail.com
   - Born        : Jun 1983
-  - github      : http://github.com/freizl  
-    
+  - github      : http://github.com/freizl
+
 ## Self assessment
   - Be able to learn new technology quickly and work independently.
   - Have taken initiative to proactively resolve the technical issues.
@@ -16,9 +16,9 @@ author: Haisheng, Wu
   - Good team player and leadership experience.
   - Have oversea working experience.
   - Fluent English at both speaking and writing.
-    
+
 ## Technical skills
-  - **Languages**: JavaScript, Haskell, Python, Java, Shell, Perl
+  - **Languages**: JavaScript, Java, Haskell, Python, Shell, Perl
   - **Web Technologies**: jQuery, CSS3, HTML5, ExtJS, PrototypeJS
   - **Open source library**: NodeJS, BackboneJS, requireJS, Spring, Django, GWT
   - **Database**: MySQL, Oracle, MongoDB
@@ -34,7 +34,7 @@ author: Haisheng, Wu
     *Applications & tools engineer and build master.*
   - Oct 2006 - Oct 2010, Senior Engineer at [Perficient China] Ltd.\
     *Enterprise Software engineer.*
-  - July 2005 - Oct 2006, Engineer at Zhejiang Guotai Tech Inc.\    
+  - July 2005 - Oct 2006, Engineer at Zhejiang Guotai Tech Inc.\
     *Web based Java application engineer.*
 
 [StubHub]: http://www.stubhub.com/
@@ -47,4 +47,3 @@ author: Haisheng, Wu
   - 2001 - 2005, [Zhejiang Gongshang University], Bachelor of Computer Science
 
 [Zhejiang Gongshang University]: http://www.zjgsu.edu.cn/
-

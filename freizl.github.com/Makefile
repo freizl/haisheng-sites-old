@@ -1,7 +1,8 @@
 
 PROG  = ./hakyll
 SOURCES = hakyll.hs
-HC=ghc
+HC=ghc -package-conf=./cabal-dev/packages-7.4.1.conf
+PD=./cabal-dev/bin/pandoc
 
 SITE=_site
 CACHE=_cache
@@ -42,8 +43,6 @@ mirror: build
 	cp -r $(SITE)/* ~/github/freizl.github.com/
 
 ########## Compile slides
-
-PD=~/.cabal/bin/pandoc
 
 ## just by lazy not to cut off md file ext.
 slides:

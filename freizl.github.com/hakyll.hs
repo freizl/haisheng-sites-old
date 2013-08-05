@@ -1,9 +1,9 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Main where
 
+import Control.Arrow ((>>>), (***), arr)
 import Control.Monad(forM_)
 import Prelude hiding (id)
-import Control.Arrow ((>>>), (***), arr)
 import Control.Category (id)
 import Data.Monoid (mempty, mconcat)
 import Text.Pandoc
@@ -19,20 +19,20 @@ main = hakyllWith config $ do
         compile compressCssCompiler
 
     -- Static directories
-    forM_ ["images/*", "codes/*"] $ \f -> match f $ do
+    match ("images/*" .||. "codes/*") $ do
         route   idRoute
         compile copyFileCompiler
 
     --
     match "sidebar.md" $ do
         route   $ setExtension ".html"
-        compile $ pageCompiler
+        compile $ pandocCompiler
 
     forM_ ["cv.md", "cv2.md"] $ \f -> match f $ do
         route   $ setExtension ".html"
-        compile $ pageCompiler
-              >>> applyTemplateCompiler "templates/default.html"
-              >>> relativizeUrlsCompiler
+        compile $ pandocCompiler
+              >>= loadAndApplyTemplate "templates/default.html"
+              >>= relativizeUrls
 
     -- just copy pre-compiled slides.
     match "slides/*.html" $ do
@@ -42,32 +42,32 @@ main = hakyllWith config $ do
     -- Render posts
     match postsWildcardMatch $ do
         route   $ setExtension ".html"
-        compile $ pageCompilerWithToc
-            >>> arr (renderDateField "date" "%B %e, %Y" "Date unknown")
-            >>> renderTagsField "prettytags" (fromCapture "tags/*")
-            >>> applyTemplateCompiler "templates/post.html"
-            >>> applyTemplateCompiler "templates/default.html"
-            >>> relativizeUrlsCompiler
+        compile $ pandocCompilerWith
+            >>= arr (renderDateField "date" "%B %e, %Y" "Date unknown")
+            >>= renderTagsField "prettytags" (fromCapture "tags/*")
+            >>= loadAndApplyTemplate "templates/post.html"
+            >>= loadAndApplyTemplate "templates/default.html"
+            >>= relativizeUrls
 
     -- Render posts list
     match "posts.html" $ route idRoute
     create "posts.html" $ constA mempty
-        >>> arr (setField "title" "All posts")
-        >>> requireAllA postsWildcardMatch addPostList
-        >>> applyTemplateCompiler "templates/posts.html"
-        >>> applyTemplateCompiler "templates/default.html"
-        >>> relativizeUrlsCompiler
+        >>= arr (setField "title" "All posts")
+        >>= requireAllA postsWildcardMatch addPostList
+        >>= loadAndApplyTemplate "templates/posts.html"
+        >>= loadAndApplyTemplate "templates/default.html"
+        >>= relativizeUrls
 
     -- Index
     match "index.html" $ route idRoute
     create "index.html" $ constA mempty
-        >>> arr (setField "title" "Home")
-        >>> requireA "sidebar.md" (setFieldA "index" $ arr pageBody)
-        >>> requireA "tags" (setFieldA "tagcloud" (renderTagCloud'))
-        >>> requireAllA postsWildcardMatch (id *** arr (take 9 . reverse . chronological) >>> addPostList)
-        >>> applyTemplateCompiler "templates/index.html"
-        >>> applyTemplateCompiler "templates/default.html"
-        >>> relativizeUrlsCompiler
+        >>= arr (setField "title" "Home")
+        >>= requireA "sidebar.md" (setFieldA "index" $ arr pageBody)
+        >>= requireA "tags" (setFieldA "tagcloud" (renderTagCloud'))
+        >>= requireAllA postsWildcardMatch (id *** arr (take 9 . reverse . chronological) >>= addPostList)
+        >>= loadAndApplyTemplate "templates/index.html"
+        >>= loadAndApplyTemplate "templates/default.html"
+        >>= relativizeUrlsCompiler
 
     -- Tags
     create "tags" $
@@ -76,15 +76,15 @@ main = hakyllWith config $ do
     -- Add a tag list compiler for every tag
     match "tags/*" $ route $ setExtension ".html"
     metaCompile $ require_ "tags"
-        >>> arr tagsMap
-        >>> arr (map (\(t, p) -> (tagIdentifier t, makeTagList t p)))
+        >>= arr tagsMap
+        >>= arr (map (\(t, p) -> (tagIdentifier t, makeTagList t p)))
 
     -- Render RSS feed
     match "rss.xml" $ route idRoute
     create "rss.xml" $
         requireAll_ postsWildcardMatch
-            >>> mapCompiler (arr $ copyBodyToField "description")
-            >>> renderRss feedConfiguration
+            >>= mapCompiler (arr $ copyBodyToField "description")
+            >>= renderRss feedConfiguration
 
     -- Read templates
     match "templates/*" $ compile templateCompiler
@@ -96,7 +96,7 @@ main = hakyllWith config $ do
     tagIdentifier :: String -> Identifier (Page String)
     tagIdentifier = fromCapture "tags/*"
 
-    pageCompilerWithToc = pageCompilerWith defaultHakyllParserState withToc
+    pageCompilerWithToc = pandocCompilerWith defaultHakyllParserState withToc
 
     withToc = defaultHakyllWriterOptions
         { writerTableOfContents = True
@@ -110,19 +110,19 @@ main = hakyllWith config $ do
 addPostList :: Compiler (Page String, [Page String]) (Page String)
 addPostList = setFieldA "posts" $
     arr (reverse . chronological)
-        >>> require "templates/postitem.html" (\p t -> map (applyTemplate t) p)
-        >>> arr mconcat
-        >>> arr pageBody
+        >>= require "templates/postitem.html" (\p t -> map (applyTemplate t) p)
+        >>= arr mconcat
+        >>= arr pageBody
 
 makeTagList :: String
             -> [Page String]
             -> Compiler () (Page String)
 makeTagList tag posts =
     constA (mempty, posts)
-        >>> addPostList
-        >>> arr (setField "title" ("Posts tagged &#8216;" ++ tag ++ "&#8217;"))
-        >>> applyTemplateCompiler "templates/posts.html"
-        >>> applyTemplateCompiler "templates/default.html"
+        >>= addPostList
+        >>= arr (setField "title" ("Posts tagged &#8216;" ++ tag ++ "&#8217;"))
+        >>= loadAndApplyTemplate "templates/posts.html"
+        >>= loadAndApplyTemplate "templates/default.html"
 
 feedConfiguration :: FeedConfiguration
 feedConfiguration = FeedConfiguration
@@ -132,8 +132,8 @@ feedConfiguration = FeedConfiguration
     , feedRoot        = "http://freizl.github.com/"
     }
 
-config :: HakyllConfiguration
-config = defaultHakyllConfiguration
+config :: Configuration
+config = defaultConfiguration
     --{ deployCommand = "rsync -c -r -ave 'ssh' \
     --                  \_site/* freizl_freizl@ssh.phx.nearlyfreespeech.net:/home/public"
     --}

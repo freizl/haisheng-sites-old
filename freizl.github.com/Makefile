@@ -1,6 +1,6 @@
 
-PROG  = ./hakyll
-SOURCES = hakyll.hs
+PROG  = ./site
+SOURCES = site.hs
 HC=ghc -package-conf=./cabal-dev/packages-7.4.1.conf
 PD=./cabal-dev/bin/pandoc
 

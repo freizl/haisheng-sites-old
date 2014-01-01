@@ -28,7 +28,7 @@ main = hakyllWith config $ do
         route   $ setExtension ".html"
         compile $ pandocCompiler
 
-    forM_ ["cv.md", "cv2.md"] $ \f -> match f $ do
+    forM_ ["cv.md", "cv-full.md"] $ \f -> match f $ do
         route   $ setExtension ".html"
         compile $ pandocCompiler
               >>= loadAndApplyTemplate "templates/default.html"

@@ -13,7 +13,7 @@ I wonder it would take minutes or even hours.
 
 So, problem solving failed.
 
-~~~~~
+~~~~~{.haskell}
 module Main where
 import Data.Word
     
@@ -43,7 +43,7 @@ I picked this difference and make the following change and it worked out really 
 
 The result came under 1.5s at my local!
 
-~~~~~
+~~~~~{.haskell}
 
 startChain :: Word32 -> Int -> Int
 startChain 1 count    = count + 1

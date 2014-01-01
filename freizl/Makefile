@@ -14,7 +14,7 @@ build:
 	cabal configure
 	cabal build
 
-install:
+install: slides
 	cabal install
 
 run:
@@ -29,8 +29,8 @@ ir: install run
 
 ########## Mirror to github
 
-mirror: build
-	cp -r $(SITE)/* ~/github/freizl.github.com/
+mirror:
+	cp -r $(SITE)/* ../
 
 ########## Compile slides
 

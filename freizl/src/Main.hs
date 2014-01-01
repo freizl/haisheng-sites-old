@@ -187,9 +187,9 @@ feedConfiguration title = FeedConfiguration
 --------------------------------------------------------------------------------
 config :: Configuration
 config = defaultConfiguration
-    --{ deployCommand = "rsync -c -r -ave 'ssh' \
-    --                  \_site/* freizl_freizl@ssh.phx.nearlyfreespeech.net:/home/public"
-    --}
+    { deployCommand = "rsync -c -r -ave 'ssh' \
+                      \_site/* freizl_freizl@ssh.phx.nearlyfreespeech.net:/home/public"
+    }
 
 
 --------------------------------------------------------------------------------

@@ -4,16 +4,16 @@ author: Haisheng, Wu
 tags: python
 ---
 
-## re
+# re
 
 ~~~~~~{.python}
 >>> re.split("[^0-9]", "12 34 + 2 *")
-['12', '34', '', '', '2', '', ''] 
+['12', '34', '', '', '2', '', '']
 ~~~~~~
 
 Cant understand how '' being produced.
 
-## list
+# list
 
 ~~~~~~{.python}
 str("abcdef")[::-1] ==> "fedcba"
@@ -22,7 +22,7 @@ sorted([1,5,3,2]) ==> [1,2,3,5]
 a = [1,5,3,2]; a.sort() ==> a := [1,2,3,5]
 ~~~~~~
 
-## dict
+# dict
 
 ~~~~~~{.python}
 ### demostrate loop a dict and list/dict parameter
@@ -38,7 +38,7 @@ tst_dict(name='aa', place='bb')
 tst_dict('aaa', 'bbb') # throw error
 ~~~~~~
 
-## Mise
+# Mise
 
 ~~~~~~{.python}
 range(4) ==> [0,1,2,3] #range start from 0 by default
@@ -49,5 +49,5 @@ range(4) ==> [0,1,2,3] #range start from 0 by default
 }
 ~~~~~~
 
-## Reference
+# Reference
   - [re reference](http://docs.python.org/library/re.html)

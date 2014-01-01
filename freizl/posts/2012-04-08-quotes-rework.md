@@ -4,7 +4,7 @@ author: Haisheng, Wu
 tags: reading
 ---
 
-## Quotes
+# Quotes
   - Draw a line in the sand
   - Build half a product, not a half-assed product
   - Start at the epicenter
@@ -18,5 +18,5 @@ tags: reading
   - Ideas are immortal
   - (need, can't, must, easy, just, only, fast) Those words get in the way of healthy communication.
 
-## Reference
+# Reference
   - [Rework](http://37signals.com/rework/)

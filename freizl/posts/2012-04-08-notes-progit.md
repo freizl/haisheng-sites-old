@@ -4,7 +4,7 @@ author: Haisheng, Wu
 tags: reading, git
 ---
 
-## Chapter 9.3
+# Chapter 9.3
    - refs
    - refs/heads
    - refs/tags
@@ -13,7 +13,7 @@ tags: reading, git
 [remote "origin"]
     url = ...
     fetch = +refs/heads/* : refs/remotes/origin/*
-      ===> fetch all the references under "refs/heads" on the server 
+      ===> fetch all the references under "refs/heads" on the server
            and writes them to refs/remotes/origin locally
 ~~~~~~
 
@@ -22,7 +22,7 @@ _Questions_
    1. What does 'git branch B_NAME' actually do?
    2. What happened to HEAD when switching branch?
 
-## Chapter 6
+# Chapter 6
 
 ~~~~~~{.sh}
 git add -i
@@ -32,7 +32,7 @@ git add -i
 ###
 ### revision selection
 ### ^ ::= parent of something, only two format ^ and ^2
-git log HEAD^2 
+git log HEAD^2
 git log d107aoeu^2
 git log HEAD~3
 ~~~~~~
@@ -44,11 +44,11 @@ git log branchA branchB ^branchC
 git log master...branchA
 ~~~~~~
 
-## Internal
+# Internal
 
 Questions
 
 ![Git internal in one image](http://freizl.github.com/images/git_internal.png)
 
-## Reference
+# Reference
   + [ProGit](http://progit.org/book/)

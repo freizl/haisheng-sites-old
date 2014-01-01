@@ -4,7 +4,7 @@ author: Haisheng, Wu
 tags: emacs, latex
 ---
 
-## Introduction
+# Introduction
 
 OrgMode is really cool and export context to latex then processed to
 PDF is quite straightforwards.
@@ -18,7 +18,7 @@ install the texlive package)
 apt-get install latex-cjk-chinese latex-cjk-xcjk texlive-xetex
 ~~~~~~
 
-## First solution
+# First solution
 
 Then in the org file, add the following latex options.
 
@@ -29,7 +29,7 @@ Then in the org file, add the following latex options.
 
 A littel drawback here is the `\begin{CJK}` is added as a header
 option whice due to it will not be closed when I checked with the tex
-output. 
+output.
 
 People suggest to change to `#+LaTeX: \begin{CJK}{UTF8}{gbsn}`
 and append `#+LaTex: \end{CJK}` to the end of document.
@@ -37,7 +37,7 @@ and append `#+LaTex: \end{CJK}` to the end of document.
 It all works out OK except the title which is Chinese characters as
 well can not display at all.
 
-## Second solution
+# Second solution
 
 Well, it is XeLaTex which has better support for UTF8. Actually I did
 not figure how to make it work with orgmode until a guy from orgmode

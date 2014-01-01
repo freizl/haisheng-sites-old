@@ -4,7 +4,8 @@ author: Haisheng, Wu
 tags: reading, regex
 ---
 
-## Notes
+# Notes
+
 ~~~~~~{.perl}
 Matching and Capture, or just not Capture
 (?:...) and (...)
@@ -80,6 +81,6 @@ print "$test \n";             ### expect !abcde
 $test =~ s/\x?/!/g;
 print "$test \n";             ### expect !a!b!c!d!e
 
-~~~~~~    
+~~~~~~
 
-## Reference
+# Reference

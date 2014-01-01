@@ -4,7 +4,8 @@ author: Haisheng, Wu
 tags: reading
 ---
 
-### time-tested truths
+# time-tested truths
+
   - Conceive, believe, achieve. Persistence—combined with creativity and faith—is still the best formula for long-term success.
   - Don’t let one approach or solution blind you to better options.
   - Struggle is a necessary component of success.
@@ -12,6 +13,3 @@ tags: reading
   - Ask your customers what quality is—then never let the standard slip.
   - Give good people opportunities, supp ort them and watch them thrive.
   - Respect the “power of patents.”
-
-
-

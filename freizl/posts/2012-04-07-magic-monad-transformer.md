@@ -4,11 +4,11 @@ author: Haisheng, Wu
 tags: monad, mtl,haskell
 ---
 
-## Monad-Transformer
+# Monad-Transformer
 
 The code fragment below is from chapter 18 Monad Transform of \<Real World Haskell\>[^rwh-mt].
 
-When the first time I read this example, I was confused with how it is possible to 
+When the first time I read this example, I was confused with how it is possible to
 use `ask` of `MonadReader` (line 6) and `get` of `MonadState` (line 13) functions in the same `App` Monad content.
 
 The only reasonable explanation is that `App` is both `MonadReader` and `MonadState`.
@@ -35,7 +35,7 @@ constrainedCount curDepth path = do
   return $ (path, length contents) : concat rest
 ~~~~~~~
 
-## What is the so-called "Magic"
+# What is the so-called "Magic"
 
 I turn to the source of package mtl[^package-mtl] and finding following implementations.
 
@@ -63,14 +63,14 @@ If we do a substitution, will get
 ~~~~~~~
 1. instance MonadReader AppConfig App where ...
 
-2. instance (MonadState AppState (StateT AppState IO) 
+2. instance (MonadState AppState (StateT AppState IO)
           => MonadState AppState (ReaderT AppConfig (StateT AppState IO)) where ...
    ~> instance MonadState AppState App where ...
 ~~~~~~~
 
 Therefore `App` is both MonadReader and MonadState.
 
-## A trivial demo
+# A trivial demo
 
 I made a very trivial sample [^demo] demostrating combine ReaderT and StateT.
 

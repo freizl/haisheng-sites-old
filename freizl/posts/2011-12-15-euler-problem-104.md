@@ -4,7 +4,7 @@ author: Haisheng, Wu
 tags: euler,haskell
 ---
 
-## Solutions
+# Solutions
 
 There are two solutions below. One is written by me and another from haskell wiki.
 
@@ -14,15 +14,15 @@ They look quite similar and I can not figure out why the wiki solution can solve
 * My Solution
 
 ~~~~~~~{.haskell .numberLines}
-main = print $ snd $ head $ 
+main = print $ snd $ head $
        dropWhile (\ (x,y) -> (not . isLastNinePandigit "123456789") x)
                  (zip fibs [1..])
 
-bothNinePandigit digits n =  isFirstNinePandigit digits n 
+bothNinePandigit digits n =  isFirstNinePandigit digits n
                              && isLastNinePandigit digits n
 
-isLastNinePandigit  digits = (== digits) . sort . lastDigits 9 
-isFirstNinePandigit digits = (== digits) . sort . firstDigits 9 
+isLastNinePandigit  digits = (== digits) . sort . lastDigits 9
+isFirstNinePandigit digits = (== digits) . sort . firstDigits 9
 
 firstDigits k n = take k (show n)
 lastDigits  k n = show (n `mod` 10^k)
@@ -34,19 +34,19 @@ lastDigits  k n = show (n `mod` 10^k)
 ~~~~~~~{.haskell .numberLines}
 
 fibs = 1 : 1 : zipWith (+) fibs (tail fibs)
- 
+
 isFibPan n =
   let a = n `mod` 1000000000
       b = sort (show a)
       c = sort $ take 9 $ show n
   in  b == "123456789" && c == "123456789"
- 
-ex_104 = snd $ head $ 
+
+ex_104 = snd $ head $
          dropWhile (\(x,y) -> (not . isFibPan) x) (zip fibs [1..])
 
 ~~~~~~~
 
-## Why the differences?
+# Why the differences?
 
 The key point here is should test start nine digits first or test end nine digits.
 
@@ -59,7 +59,7 @@ Therefore test last 9 digits first make great performance improvement.
 
 *Thanks Brent[^Brent] explanation this sneaky thing very comprehensively in haskell-beginner.*
 
-## Profiling
+# Profiling
 
 What help to identify is the GHC profiling tool.
 
@@ -72,13 +72,13 @@ Several options used here are
   "cost center" is a location in the program like to collect statistics about
   and GHC will generate code to compute the cost of evalutating the expression at each location.
   e.g.
- 
+
 ~~~~~
   mean  s = {-# SCC "mean" #-} sum  s / fromIntegral (length s)
 ~~~~~
 
 - **caf-all**:
-  function with no parameters only computed once. 
+  function with no parameters only computed once.
   CAF means constant applicative forms which used for calculate that once time evaluation.
 
 - **fforce-recomp**:
@@ -95,7 +95,7 @@ ghc --make -O2 -prof -auto-all -rtsopts p104.hs
 ./p104 +RTS -p -RTS
 ~~~~~
 
-## Further
+# Further
 
 1. Chapter 25 in Real Work Haskell about profile
 

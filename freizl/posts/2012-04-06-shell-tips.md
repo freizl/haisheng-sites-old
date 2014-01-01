@@ -4,19 +4,19 @@ author: Haisheng, Wu
 tags: shell
 ---
 
-## Quicklinks
+# Quicklinks
   - [[http://bash.cyberciti.biz/guide/What_is_a_Subshell%3F][What is a Subshell]]
   - [[http://en.wikipedia.org/wiki/List_of_Unix_utilities][List of Unix utilities]]
   - [[http://www-128.ibm.com/developerworks/aix/library/au-badunixhabits.html?ca=lnxw01GoodUnixHabits][10 Good Unix habits]]
 
-## Reference
+# Reference
   - () execute command in subshell
   - {} execute command in currecnt shell
        Usage is same with () expect the final command in the list ends with a semicolon.
 
-## Sample Section A
+# Sample Section A
 
-### grep
+## grep
 
 ~~~~~~{.sh}
 grep -Elr --include=*.xsd --exclude-dir={branches,tags} VendorDesc.xsd $DIRECTORY
@@ -24,14 +24,14 @@ grep -Elr --include=*.xsd --exclude-dir={branches,tags} VendorDesc.xsd $DIRECTOR
 ps aux | grep vpnc | grep -v grep -c
 ~~~~~~
 
-### find
+## find
 
 ~~~~~~{.sh}
 find ${1} \( -name Consume*wsdl -o -name Produce*wsdl \) -path *trunk*
 find $update_dir \( -name '*.java' \) \( -path '**/source/**' -o -path '**/test/**' -o -path '**/resource/**' \)
 ~~~~~~
 
-### awk
+## awk
 
 ~~~~~~{.sh}
 ### list all time of each ping
@@ -42,7 +42,7 @@ svn st ${dirs} | awk -F" " -v ac="${*}" ' /'${predicate}'/ && (index($2,"\\")==0
 awk ' BEGIN { ORS = " " } { print }'
 ~~~~~~
 
-### sed
+## sed
 
 ~~~~~~{.sh}
 ll | sed '/Stores\|Test\|^-\|^t/d' | wc
@@ -50,15 +50,15 @@ smbclient -L \\\\hangzhou2\\twitters -U foobar | sed '/Hangzhou20/,$d'
 export BEA_IP=`/sbin/ifconfig eth0 | sed '/inet addr/!d;s/.*addr:\([^ ]\+\).*/\1/g'`
 ~~~~~~
 
-### cp
+## cp
 
 ~~~~~~{.sh}
 cp filename{,.bak}
 ~~~~~~
 
-## Sample Section B
+# Sample Section B
 
-### while
+## while
 
 ~~~~~~{.sh}
 while getopts ":ab:c" opt; do
@@ -73,7 +73,7 @@ while getopts ":ab:c" opt; do
 done
 ~~~~~~
 
-### for
+## for
 
 ~~~~~~{.sh}
 for s in $(echo $string | sed "s/;/ /g"); do
@@ -87,7 +87,7 @@ for (( i=1; i<=$n; i++ )) do
 done
 ~~~~~~
 
-### case
+## case
 
 ~~~~~~{.sh}
 case $action in

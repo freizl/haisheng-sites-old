@@ -1,10 +1,10 @@
 ---
-title: Confused Constructor in JavaScipts 
+title: Confused Constructor in JavaScipts
 author: Haisheng, Wu
 tags: javascripts
 ---
 
-## Introduction
+# Introduction
 
 I can not quite remember what happened when invoking `new` over a function.
 While I'm looking at function `init` at jQuery source, the concern comes to me again.
@@ -32,7 +32,7 @@ The answer are
 Therefore if we change the `prototype` property of the function before `new`, the `[[prototype]]` of instances afterwards is vary accordingly.
 *Refer to line 19 at [sample](#sample)*
 
-## Sample
+# Sample
 
 - **tested at google chrome 18 and pay close attention to comments.**
 
@@ -68,7 +68,7 @@ y1.constructor;        // function Object() { [native code] }
 
 - Quiz: Why y1.constructor is not same as x1.constructor?
 
-## JQuery.fn.init
+# JQuery.fn.init
 
 - `jQuery` is declarated as
 
@@ -96,7 +96,7 @@ jQuery.fn = {
 
 Since `jQuery` is just a function, we are able to do with a selector like `jQuery('div.navigator').addClass('nav')`.
 
-Actually in order to use jQuery API like `addClass`, there must exists following something 
+Actually in order to use jQuery API like `addClass`, there must exists following something
 which of cource can be found at around line 322 of jQuery.1.7.1.css[^jquery].
 
 ~~~~~~{.javascript}

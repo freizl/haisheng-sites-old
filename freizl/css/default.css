@@ -11,6 +11,10 @@ body {
   width: 780px;
 }
 
+.soft {
+    font-style: italic;
+    color: #C0C0C0;
+}
 .navbar-inner .container, .footer {
   margin-left: 5px;
 }

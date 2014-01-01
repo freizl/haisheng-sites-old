@@ -37,7 +37,8 @@ main = hakyllWith config $ do
     match "posts/*" $ do
         route   $ setExtension ".html"
         compile $ do
-            pandocCompiler
+--            pandocCompiler
+            pandocCompilerToc
                 >>= saveSnapshot "content"
                 >>= return . fmap demoteHeaders
                 >>= loadAndApplyTemplate "templates/post.html" (postCtx tags)
@@ -100,18 +101,19 @@ main = hakyllWith config $ do
                     listField "posts" (postCtx tags) (return posts) <>
                     field "tags" (\_ -> renderTagList tags) <>
                     defaultContext
-
             getResourceBody
                 >>= applyAsTemplate indexContext
                 >>= loadAndApplyTemplate "templates/default.html" indexContext
                 >>= relativizeUrls
 
     -- Render some static pages
+{-
     match (fromList []) $ do
         route   $ setExtension ".html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
+-}
 
     -- Render the 404 page, we don't relativize URL's here.
     match "404.html" $ do
@@ -146,13 +148,21 @@ main = hakyllWith config $ do
 
   where
     cvs = [ "cv.md", "cv-full.md" ]
+    
+    pandocCompilerToc = pandocCompilerWith defaultHakyllReaderOptions withToc
+
+    withToc = defaultHakyllWriterOptions
+        { Pandoc.writerTableOfContents = True
+        , Pandoc.writerTemplate = "$toc$\n$body$"
+        , Pandoc.writerStandalone = True
+        }
 
 --------------------------------------------------------------------------------
 postCtx :: Tags -> Context String
 postCtx tags = mconcat
     [ modificationTimeField "mtime" "%U"
     , dateField "date" "%B %e, %Y"
-    , tagCloudField "prettytags" 100 130 tags
+    , tagsField "tags" tags
     , defaultContext
     ]
 

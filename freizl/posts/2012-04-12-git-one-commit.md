@@ -4,15 +4,15 @@ author: Haisheng, Wu
 tags: git
 ---
 
-## Play it
+# Play it
 
-### new two files
+## new two files
 ~~~~~~{.sh}
 haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ echo "11111" > 1.txt
 haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ echo "22222" > 2.txt
 ~~~~~~
 
-### git-add
+## git-add
 
 ~~~~~~{.sh}
 haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git add .
@@ -28,14 +28,14 @@ haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git st
 #	new file:   2.txt
 #
 ~~~~~~
-  
-### no objects created yet
+
+## no objects created yet
 
 ~~~~~~{.sh}
 haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git rev-list --objects --all
 ~~~~~~
 
-### git-commit
+## git-commit
 
 ~~~~~~{.sh}
 haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git ci "first commit"
@@ -46,19 +46,19 @@ haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git ci "first commit"
 
 ~~~~~~
 
-### git-obj-list
+## git-obj-list
 
 ~~~~~~{.sh}
 
 haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git rev-list --objects --all
 8ef1919e4ca33cf602488a27b5671a6b6acf754b
-8ed6deeabbbb89cda775aafc10745ea40dcd8456 
+8ed6deeabbbb89cda775aafc10745ea40dcd8456
 f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f 1.txt
 0ac1ae0ae201d8db7ac29015a6ba7494db37d59c 2.txt
 
 ~~~~~~
 
-### what are they
+## what are they
 
 ~~~~~~{.sh}
 ## | Blob objects
@@ -82,7 +82,7 @@ first commit
 
 ~~~~~~
 
-## Further
+# Further
   - [Git object model]
   - [Git internal in one image]
 

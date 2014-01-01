@@ -22,9 +22,10 @@ run:
 	$(PROG) build
 
 p:
-	$(PROG) preview 9911
+	$(PROG) preview
 
 ir: install run
+
 
 ########## Mirror to github
 

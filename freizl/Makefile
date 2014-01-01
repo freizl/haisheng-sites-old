@@ -5,7 +5,7 @@ PROG  = $(SB)/bin/freizl
 
 .PHONY: slides
 
-default: build
+default: install
 
 clean:
 	rm -rf dist
@@ -24,7 +24,7 @@ run:
 p:
 	$(PROG) preview 9911
 
-rp: build run p
+ir: install run
 
 ########## Mirror to github
 

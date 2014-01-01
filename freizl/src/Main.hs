@@ -1,16 +1,16 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Main where
 
+import           Data.Monoid     (mconcat, (<>))
+import           Prelude         hiding (id)
 import           System.Cmd      (system)
 import           System.FilePath (replaceExtension, takeDirectory)
-import           Data.Monoid     ((<>), mconcat)
-import Prelude hiding (id)
-import qualified Text.Pandoc as Pandoc
+import qualified Text.Pandoc     as Pandoc
 
-import Hakyll
+import           Hakyll
 
---postsWildcardMatch :: Pattern
---postsWildcardMatch = "posts/*"
+postsWildcardMatch :: Pattern
+postsWildcardMatch = "posts/**/*"
 
 main :: IO ()
 main = hakyllWith config $ do
@@ -44,19 +44,21 @@ main = hakyllWith config $ do
                 >>= loadAndApplyTemplate "templates/default.html" defaultContext
                 >>= relativizeUrls
 
+    {--}
+
     -- Post list
     create ["posts.html"] $ do
         route idRoute
         compile $ do
             posts <- recentFirst =<< loadAll "posts/*"
             let ctx = constField "title" "Posts" <>
-                        listField "posts" (postCtx tags) (return posts) <>
-                        defaultContext
+                      listField "posts" (postCtx tags) (return posts) <>
+                      defaultContext
             makeItem ""
                 >>= loadAndApplyTemplate "templates/posts.html" ctx
                 >>= loadAndApplyTemplate "templates/default.html" ctx
                 >>= relativizeUrls
-
+ 
     -- Post tags
     tagsRules tags $ \tag pattern -> do
         let title = "Posts tagged " ++ tag
@@ -75,16 +77,25 @@ main = hakyllWith config $ do
 
         -- Create RSS feed as well
         version "rss" $ do
-            route   $ setExtension "xml"
-            compile $ loadAllSnapshots pattern "content"
+          route   $ setExtension "xml"
+        compile $ loadAllSnapshots pattern "content"
+          >>= fmap (take 10) . recentFirst
+          >>= renderRss (feedConfiguration title) feedCtx
+
+
+    -- Render RSS feed
+    create ["rss.xml"] $ do
+        route idRoute
+        compile $ do
+            loadAllSnapshots "posts/*" "content"
                 >>= fmap (take 10) . recentFirst
-                >>= renderRss (feedConfiguration title) feedCtx
+                >>= renderRss (feedConfiguration "All posts") feedCtx
 
     -- Index
     match "index.html" $ do
         route idRoute
         compile $ do
-            posts <- fmap (take 3) . recentFirst =<< loadAll "posts/*"
+            posts <- fmap (take 10) . recentFirst =<< loadAll "posts/*"
             let indexContext =
                     listField "posts" (postCtx tags) (return posts) <>
                     field "tags" (\_ -> renderTagList tags) <>
@@ -95,10 +106,8 @@ main = hakyllWith config $ do
                 >>= loadAndApplyTemplate "templates/default.html" indexContext
                 >>= relativizeUrls
 
-    match "templates/*" $ compile templateCompiler
-
     -- Render some static pages
-    match (fromList pages) $ do
+    match (fromList []) $ do
         route   $ setExtension ".html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
@@ -109,14 +118,7 @@ main = hakyllWith config $ do
         route idRoute
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
-
-    -- Render RSS feed
-    create ["rss.xml"] $ do
-        route idRoute
-        compile $ do
-            loadAllSnapshots "posts/*" "content"
-                >>= fmap (take 10) . recentFirst
-                >>= renderRss (feedConfiguration "All posts") feedCtx
+            >>= relativizeUrls
 
     -- CV as HTML
     match (fromList cvs) $ do
@@ -130,7 +132,7 @@ main = hakyllWith config $ do
                 >>= relativizeUrls
 
     -- CV as PDF
-    match (fromList cvs) $ version "pdf" $ do
+    match (fromList []) $ version "pdf" $ do
         route   $ setExtension ".pdf"
         compile $ do
             cvTpl <- loadBody "templates/cv.tex"
@@ -140,8 +142,9 @@ main = hakyllWith config $ do
                 >>= applyTemplate cvTpl defaultContext
                 >>= pdflatex
 
+    match "templates/*" $ compile templateCompiler
+
   where
-    pages = [ "sidebar.md" ]
     cvs = [ "cv.md", "cv-full.md" ]
 
 --------------------------------------------------------------------------------
@@ -149,7 +152,7 @@ postCtx :: Tags -> Context String
 postCtx tags = mconcat
     [ modificationTimeField "mtime" "%U"
     , dateField "date" "%B %e, %Y"
-    , tagsField "prettytags" tags
+    , tagCloudField "prettytags" 100 130 tags
     , defaultContext
     ]
 
@@ -190,7 +193,7 @@ pdflatex item = do
     unsafeCompiler $ do
         writeFile texPath $ itemBody item
         _ <- system $ unwords ["pdflatex", "-halt-on-error",
-            "-output-directory", tmpDir, texPath, ">/dev/null", "2>&1"]
+            "-output-directory", tmpDir, texPath, ">/tmp/freizl.log", "2>&1"]
         return ()
 
     makeItem $ TmpFile pdfPath

@@ -1,41 +1,30 @@
+SB=.cabal-sandbox
+PD=$(SB)/bin/pandoc
 
-PROG  = ./site
-SOURCES = site.hs
-HC=ghc -package-conf=./cabal-dev/packages-7.4.1.conf
-PD=./cabal-dev/bin/pandoc
-
-SITE=_site
-CACHE=_cache
+PROG  = $(SB)/bin/freizl
 
 .PHONY: slides
 
 default: build
 
-$(PROG) : $(SOURCES)
-	$(HC) --make $< -o $@
-
 clean:
-	rm -f $(SOURCES:.hs=.hi) $(SOURCES:.hs=.o) $(PROG)
-	rm -rf $(SITE) $(CACHE)
-	rm -rf $(GAE)/$(SITE)
+	rm -rf dist
 
-build: $(PROG) slides
+build:
+	cabal configure
+	cabal build
+
+install:
+	cabal install
+
+run:
+	$(PROG) clean
 	$(PROG) build
 
-rebuild: $(PROG) slides
-	$(PROG) rebuild
-
-preview:
+p:
 	$(PROG) preview 9911
 
-deploy: build
-	$(PROG) deploy
-
-p: preview
-
-bp: build preview
-
-rp: rebuild preview
+rp: build run p
 
 ########## Mirror to github
 

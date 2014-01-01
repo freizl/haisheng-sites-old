@@ -5,3 +5,6 @@ hakyll
 cabal-dev
 slides/*.html
 test*
+.cabal-sandbox
+cabal.sandbox.config
+dist

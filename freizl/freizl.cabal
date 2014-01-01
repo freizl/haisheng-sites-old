@@ -3,14 +3,14 @@
 
 name:                freizl
 version:             0.1.0.0
-synopsis:         Haisheng Home   
-description:      Haisheng Home
+synopsis:            Haisheng Home   
+description:         Haisheng Home
 homepage:            http://freizl.github.io
 license:             AllRightsReserved
 license-file:        LICENSE
 author:              Haisheng.WU
 maintainer:          freizl@gmail.com
-Copyright:          (C) 2013 Haisheng Wu
+Copyright:           (C) 2013 Haisheng Wu
 category:            Web
 build-type:          Simple
 -- extra-source-files:  

@@ -1,18 +1,20 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Main where
 
-import Control.Arrow ((>>>), (***), arr)
-import Control.Monad(forM_)
+import           System.Cmd      (system)
+import           System.FilePath (replaceExtension, takeDirectory)
+import           Data.Monoid     ((<>), mconcat)
 import Prelude hiding (id)
-import Control.Category (id)
-import Data.Monoid (mempty, mconcat)
-import Text.Pandoc
+import qualified Text.Pandoc as Pandoc
+
 import Hakyll
 
-postsWildcardMatch = "posts/**/*"
+--postsWildcardMatch :: Pattern
+--postsWildcardMatch = "posts/*"
 
 main :: IO ()
 main = hakyllWith config $ do
+
     -- Compress CSS
     match "css/*" $ do
         route   idRoute
@@ -23,117 +25,172 @@ main = hakyllWith config $ do
         route   idRoute
         compile copyFileCompiler
 
-    --
-    match "sidebar.md" $ do
-        route   $ setExtension ".html"
-        compile $ pandocCompiler
-
-    forM_ ["cv.md", "cv-full.md"] $ \f -> match f $ do
-        route   $ setExtension ".html"
-        compile $ pandocCompiler
-              >>= loadAndApplyTemplate "templates/default.html"
-              >>= relativizeUrls
+    -- Tags
+    tags <- buildTags "posts/*" (fromCapture "tags/*.html")
 
     -- just copy pre-compiled slides.
     match "slides/*.html" $ do
         route   $ idRoute
         compile $ copyFileCompiler
 
-    -- Render posts
-    match postsWildcardMatch $ do
+    -- Render each and every post
+    match "posts/*" $ do
         route   $ setExtension ".html"
-        compile $ pandocCompilerWith
-            >>= arr (renderDateField "date" "%B %e, %Y" "Date unknown")
-            >>= renderTagsField "prettytags" (fromCapture "tags/*")
-            >>= loadAndApplyTemplate "templates/post.html"
-            >>= loadAndApplyTemplate "templates/default.html"
-            >>= relativizeUrls
+        compile $ do
+            pandocCompiler
+                >>= saveSnapshot "content"
+                >>= return . fmap demoteHeaders
+                >>= loadAndApplyTemplate "templates/post.html" (postCtx tags)
+                >>= loadAndApplyTemplate "templates/default.html" defaultContext
+                >>= relativizeUrls
 
-    -- Render posts list
-    match "posts.html" $ route idRoute
-    create "posts.html" $ constA mempty
-        >>= arr (setField "title" "All posts")
-        >>= requireAllA postsWildcardMatch addPostList
-        >>= loadAndApplyTemplate "templates/posts.html"
-        >>= loadAndApplyTemplate "templates/default.html"
-        >>= relativizeUrls
+    -- Post list
+    create ["posts.html"] $ do
+        route idRoute
+        compile $ do
+            posts <- recentFirst =<< loadAll "posts/*"
+            let ctx = constField "title" "Posts" <>
+                        listField "posts" (postCtx tags) (return posts) <>
+                        defaultContext
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/posts.html" ctx
+                >>= loadAndApplyTemplate "templates/default.html" ctx
+                >>= relativizeUrls
+
+    -- Post tags
+    tagsRules tags $ \tag pattern -> do
+        let title = "Posts tagged " ++ tag
+
+        -- Copied from posts, need to refactor
+        route idRoute
+        compile $ do
+            posts <- recentFirst =<< loadAll pattern
+            let ctx = constField "title" title <>
+                        listField "posts" (postCtx tags) (return posts) <>
+                        defaultContext
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/posts.html" ctx
+                >>= loadAndApplyTemplate "templates/default.html" ctx
+                >>= relativizeUrls
+
+        -- Create RSS feed as well
+        version "rss" $ do
+            route   $ setExtension "xml"
+            compile $ loadAllSnapshots pattern "content"
+                >>= fmap (take 10) . recentFirst
+                >>= renderRss (feedConfiguration title) feedCtx
 
     -- Index
-    match "index.html" $ route idRoute
-    create "index.html" $ constA mempty
-        >>= arr (setField "title" "Home")
-        >>= requireA "sidebar.md" (setFieldA "index" $ arr pageBody)
-        >>= requireA "tags" (setFieldA "tagcloud" (renderTagCloud'))
-        >>= requireAllA postsWildcardMatch (id *** arr (take 9 . reverse . chronological) >>= addPostList)
-        >>= loadAndApplyTemplate "templates/index.html"
-        >>= loadAndApplyTemplate "templates/default.html"
-        >>= relativizeUrlsCompiler
+    match "index.html" $ do
+        route idRoute
+        compile $ do
+            posts <- fmap (take 3) . recentFirst =<< loadAll "posts/*"
+            let indexContext =
+                    listField "posts" (postCtx tags) (return posts) <>
+                    field "tags" (\_ -> renderTagList tags) <>
+                    defaultContext
 
-    -- Tags
-    create "tags" $
-        requireAll postsWildcardMatch (\_ ps -> readTags ps :: Tags String)
+            getResourceBody
+                >>= applyAsTemplate indexContext
+                >>= loadAndApplyTemplate "templates/default.html" indexContext
+                >>= relativizeUrls
 
-    -- Add a tag list compiler for every tag
-    match "tags/*" $ route $ setExtension ".html"
-    metaCompile $ require_ "tags"
-        >>= arr tagsMap
-        >>= arr (map (\(t, p) -> (tagIdentifier t, makeTagList t p)))
-
-    -- Render RSS feed
-    match "rss.xml" $ route idRoute
-    create "rss.xml" $
-        requireAll_ postsWildcardMatch
-            >>= mapCompiler (arr $ copyBodyToField "description")
-            >>= renderRss feedConfiguration
-
-    -- Read templates
     match "templates/*" $ compile templateCompiler
 
+    -- Render some static pages
+    match (fromList pages) $ do
+        route   $ setExtension ".html"
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "templates/default.html" defaultContext
+            >>= relativizeUrls
+
+    -- Render the 404 page, we don't relativize URL's here.
+    match "404.html" $ do
+        route idRoute
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "templates/default.html" defaultContext
+
+    -- Render RSS feed
+    create ["rss.xml"] $ do
+        route idRoute
+        compile $ do
+            loadAllSnapshots "posts/*" "content"
+                >>= fmap (take 10) . recentFirst
+                >>= renderRss (feedConfiguration "All posts") feedCtx
+
+    -- CV as HTML
+    match (fromList cvs) $ do
+        route   $ setExtension ".html"
+        compile $ do
+            cvTpl      <- loadBody "templates/cv.html"
+            defaultTpl <- loadBody "templates/default.html"
+            pandocCompiler
+                >>= applyTemplate cvTpl defaultContext
+                >>= applyTemplate defaultTpl defaultContext
+                >>= relativizeUrls
+
+    -- CV as PDF
+    match (fromList cvs) $ version "pdf" $ do
+        route   $ setExtension ".pdf"
+        compile $ do
+            cvTpl <- loadBody "templates/cv.tex"
+            getResourceBody
+                >>= (return . readPandoc)
+                >>= (return . fmap (Pandoc.writeLaTeX Pandoc.def))
+                >>= applyTemplate cvTpl defaultContext
+                >>= pdflatex
+
   where
-    renderTagCloud' :: Compiler (Tags String) String
-    renderTagCloud' = renderTagCloud tagIdentifier 100 120
+    pages = [ "sidebar.md" ]
+    cvs = [ "cv.md", "cv-full.md" ]
 
-    tagIdentifier :: String -> Identifier (Page String)
-    tagIdentifier = fromCapture "tags/*"
+--------------------------------------------------------------------------------
+postCtx :: Tags -> Context String
+postCtx tags = mconcat
+    [ modificationTimeField "mtime" "%U"
+    , dateField "date" "%B %e, %Y"
+    , tagsField "prettytags" tags
+    , defaultContext
+    ]
 
-    pageCompilerWithToc = pandocCompilerWith defaultHakyllParserState withToc
 
-    withToc = defaultHakyllWriterOptions
-        { writerTableOfContents = True
-        , writerTemplate = "<h2 id=\"TOC\">TOC</h2>\n$toc$\n$body$"
-        , writerStandalone = True
-        }
+--------------------------------------------------------------------------------
+feedCtx :: Context String
+feedCtx = mconcat
+    [ bodyField "description"
+    , defaultContext
+    ]
 
--- | Auxiliary compiler: generate a post list from a list of given posts, and
--- add it to the current page under @$posts@
---
-addPostList :: Compiler (Page String, [Page String]) (Page String)
-addPostList = setFieldA "posts" $
-    arr (reverse . chronological)
-        >>= require "templates/postitem.html" (\p t -> map (applyTemplate t) p)
-        >>= arr mconcat
-        >>= arr pageBody
-
-makeTagList :: String
-            -> [Page String]
-            -> Compiler () (Page String)
-makeTagList tag posts =
-    constA (mempty, posts)
-        >>= addPostList
-        >>= arr (setField "title" ("Posts tagged &#8216;" ++ tag ++ "&#8217;"))
-        >>= loadAndApplyTemplate "templates/posts.html"
-        >>= loadAndApplyTemplate "templates/default.html"
-
-feedConfiguration :: FeedConfiguration
-feedConfiguration = FeedConfiguration
-    { feedTitle       = "Haisheng's Tech Blog RSS feed."
+--------------------------------------------------------------------------------
+feedConfiguration :: String -> FeedConfiguration
+feedConfiguration title = FeedConfiguration
+    { feedTitle       = "Haisheng's Tech Blog " ++ title
     , feedDescription = "Haisheng's Tech Blog."
     , feedAuthorName  = "Haisheng Wu"
-    , feedRoot        = "http://freizl.github.com/"
+    , feedAuthorEmail = "freizl@gmail.com"
+    , feedRoot        = "http://freizl.github.io/"
     }
 
+--------------------------------------------------------------------------------
 config :: Configuration
 config = defaultConfiguration
     --{ deployCommand = "rsync -c -r -ave 'ssh' \
     --                  \_site/* freizl_freizl@ssh.phx.nearlyfreespeech.net:/home/public"
     --}
+
+
+--------------------------------------------------------------------------------
+-- | Hacky.
+pdflatex :: Item String -> Compiler (Item TmpFile)
+pdflatex item = do
+    TmpFile texPath <- newTmpFile "pdflatex.tex"
+    let tmpDir  = takeDirectory texPath
+        pdfPath = replaceExtension texPath "pdf"
+
+    unsafeCompiler $ do
+        writeFile texPath $ itemBody item
+        _ <- system $ unwords ["pdflatex", "-halt-on-error",
+            "-output-directory", tmpDir, texPath, ">/dev/null", "2>&1"]
+        return ()
+
+    makeItem $ TmpFile pdfPath

@@ -6,7 +6,7 @@ author: Haisheng, Wu
 ## Profile
   - Email       : freizl [AT] gmail.com
   - Born        : Jun 1983
-  - github      : http://github.com/freizl
+  - github      : <http://github.com/freizl>
 
 ## Self assessment
   - Be able to learn new technology quickly and work independently.

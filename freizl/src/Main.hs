@@ -80,7 +80,7 @@ main = hakyllWith config $ do
         version "rss" $ do
           route   $ setExtension "xml"
         compile $ loadAllSnapshots pattern "content"
-          >>= fmap (take 10) . recentFirst
+          >>= fmap (take 8) . recentFirst
           >>= renderRss (feedConfiguration title) feedCtx
 
 
